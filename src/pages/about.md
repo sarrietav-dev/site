@@ -1,37 +1,35 @@
 ---
 layout: ../layouts/AboutLayout.astro
-title: "About"
+title: "About Me"
 ---
 
-AstroPaper is a minimal, accessible and SEO-friendly blog theme built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
+Hi, I'm Sebastián Arrieta, a Colombian software developer passionate about creating systems that make a meaningful difference in people's lives. I enjoy learning new technologies and fostering collaboration within development teams to deliver effective solutions.
 
-![Astro Paper](public/astropaper-og.jpg)
+Outside of programming, I like spending time reading my Bible and volunteering at my local church, where I find inspiration and purpose beyond work.
 
-AstroPaper provides a solid foundation for blogs, or even portfolios\_ with full markdown support, built-in dark mode, and a clean layout that works out-of-the-box.
+Currently, I'm focused on improving my writing skills through a blog where I share ideas about programming and system design. I'm also excited about the adventure of starting my own company.
 
-The blog posts in this theme also serve as guides, docs or example articles\_ making AstroPaper a flexible starting point for your next content-driven site.
+<div class="my-8">
+  <img src="/assets/dev.svg" class="sm:w-1/2 mx-auto" alt="coding dev illustration" />
+</div>
 
-## Features
+## Featured Projects
 
-AstroPaper comes with a set of useful features that make content publishing easy and effective:
+- **CampusCal** — Comprehensive booking system for the University of Cartagena, reducing reservation times by 50% thanks to an intuitive design. Built with **Laravel**, **Vue.js**, and **TailwindCSS**.
+- **Horizon** — Robust incident-management solution for property administration. Built with **React.js** and **Spring Boot**.
+- **Shoppingify** — Web app to manage shopping lists and provide advanced analytics, following **Domain-Driven Design (DDD)** principles.
+- **Product Feedback** — Platform where users can share feedback on company products. Built with **Ruby on Rails**.
+- **Finance** — Personal finance manager to record transactions, track budgets, and grow savings. Built with **Laravel**.
 
-- SEO-friendly
-- Fast performance
-- Light & dark mode
-- Highly customizable
-- Organizable blog posts
-- Responsive & accessible
-- Static search with [PageFind](https://pagefind.app/)
-- Automatic social image generation
+## Skills & Tools
 
-and so much more.
+- **Languages:** TypeScript, JavaScript, PHP, Java, Ruby
+- **Frameworks & Libraries:** React, Vue, Laravel, Spring Boot, Ruby on Rails
+- **DevOps & Others:** Docker, GitHub Actions, PostgreSQL, MySQL
+- **UI & Design:** TailwindCSS, Figma
 
-## Show your support
+## What Drives Me
 
-If you like [AstroPaper](https://github.com/satnaing/astro-paper), consider giving it a star ⭐️.
+I believe technology is a means to better serve people. I aim to build products that bring communities closer, streamline day-to-day life, and embody values of excellence, integrity, and service.
 
-Found a bug 🐛 or have an improvement ✨ in mind? Feel free to open an [issue](https://github.com/satnaing/astro-paper/issues), submit a [pull request](https://github.com/satnaing/astro-paper/pulls) or start a [discussion](https://github.com/satnaing/astro-paper/discussions).
-
-If you find this theme helpful, you can also [sponsor me on GitHub](https://github.com/sponsors/satnaing) or [buy me a coffee](https://buymeacoffee.com/satnaing) to show your support — every penny counts.
-
-Kyay zuu! 🙏🏼
+If you'd like to collaborate or simply say hello, feel free to reach out!
