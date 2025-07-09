@@ -14,7 +14,10 @@ export default function Comments({
   const [theme, setTheme] = useState(() => {
     if (typeof window === "undefined") return "light";
     const currentTheme = localStorage.getItem("theme");
-    const browserTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    const browserTheme = window.matchMedia("(prefers-color-scheme: dark)")
+      .matches
+      ? "dark"
+      : "light";
     return currentTheme || browserTheme;
   });
 
@@ -41,4 +44,4 @@ export default function Comments({
       <Giscus theme={theme === "light" ? lightTheme : darkTheme} {...GISCUS} />
     </div>
   );
-} 
+}
