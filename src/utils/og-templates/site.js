@@ -8,111 +8,91 @@ export default async () => {
       type: "div",
       props: {
         style: {
-          background: "#fefbfb",
+          background: "#eee5cd",
           width: "100%",
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          fontFamily: "'IBM Plex Mono', serif",
+          color: "#473e2e",
+          position: "relative",
         },
         children: [
           {
             type: "div",
             props: {
               style: {
-                position: "absolute",
-                top: "-1px",
-                right: "-1px",
-                border: "4px solid #000",
-                background: "#ecebeb",
-                opacity: "0.9",
-                borderRadius: "4px",
+                border: "4px solid #473e2e",
+                background: "#fffbe9",
+                borderRadius: "16px",
+                boxShadow: "0 4px 24px #a0644122",
                 display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
                 justifyContent: "center",
-                margin: "2.5rem",
-                width: "88%",
-                height: "80%",
+                padding: "64px 64px 48px 64px",
+                width: "900px",
+                maxWidth: "92%",
               },
-            },
-          },
-          {
-            type: "div",
-            props: {
-              style: {
-                border: "4px solid #000",
-                background: "#fefbfb",
-                borderRadius: "4px",
-                display: "flex",
-                justifyContent: "center",
-                margin: "2rem",
-                width: "88%",
-                height: "80%",
-              },
-              children: {
-                type: "div",
-                props: {
-                  style: {
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    margin: "20px",
-                    width: "90%",
-                    height: "90%",
+              children: [
+                {
+                  type: "div",
+                  props: {
+                    style: {
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginBottom: 32,
+                    },
+                    children: [
+                      {
+                        type: "p",
+                        props: {
+                          style: {
+                            fontSize: 64,
+                            fontWeight: "bold",
+                            margin: 0,
+                            color: "#473e2e",
+                          },
+                          children: SITE.title,
+                        },
+                      },
+                      {
+                        type: "p",
+                        props: {
+                          style: {
+                            fontSize: 32,
+                            margin: 0,
+                            color: "#473e2e",
+                          },
+                          children: SITE.desc,
+                        },
+                      },
+                    ],
                   },
-                  children: [
-                    {
-                      type: "div",
-                      props: {
-                        style: {
-                          display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          height: "90%",
-                          maxHeight: "90%",
-                          overflow: "hidden",
-                          textAlign: "center",
-                        },
-                        children: [
-                          {
-                            type: "p",
-                            props: {
-                              style: { fontSize: 72, fontWeight: "bold" },
-                              children: SITE.title,
-                            },
-                          },
-                          {
-                            type: "p",
-                            props: {
-                              style: { fontSize: 28 },
-                              children: SITE.desc,
-                            },
-                          },
-                        ],
-                      },
-                    },
-                    {
-                      type: "div",
-                      props: {
-                        style: {
-                          display: "flex",
-                          justifyContent: "flex-end",
-                          width: "100%",
-                          marginBottom: "8px",
-                          fontSize: 28,
-                        },
-                        children: {
-                          type: "span",
-                          props: {
-                            style: { overflow: "hidden", fontWeight: "bold" },
-                            children: new URL(SITE.website).hostname,
-                          },
-                        },
-                      },
-                    },
-                  ],
                 },
-              },
+                {
+                  type: "div",
+                  props: {
+                    style: {
+                      display: "flex",
+                      justifyContent: "center",
+                      width: "100%",
+                      marginTop: 24,
+                      fontSize: 32,
+                    },
+                    children: {
+                      type: "span",
+                      props: {
+                        style: { color: "#a06441", fontWeight: "bold" },
+                        children: new URL(SITE.website).hostname,
+                      },
+                    },
+                  },
+                },
+              ],
             },
           },
         ],
