@@ -2,11 +2,11 @@
   <circle cx="64" cy="64" r="60" class="bg" />
   <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" font-family="'IBM Plex Mono', monospace" font-size="72" class="s">S</text>
   <style>
-    .bg { fill: #a06441; }
-    .s { fill: #fff; font-weight: bold; }
+    .bg { fill: #e8f0e8; }
+    .s { fill: #2c3e3b; font-weight: bold; }
     @media (prefers-color-scheme: dark) {
-      .bg { fill: #d19b70; }
-      .s { fill: #1e1b17; }
+      .bg { fill: #1a2420; }
+      .s { fill: #e4ece8; }
     }
   </style>
 </svg>
