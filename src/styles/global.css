@@ -37,6 +37,10 @@ html[data-theme="dark"] {
   --color-accent: var(--accent);
   --color-muted: var(--muted);
   --color-border: var(--border);
+  /* Font variables used by Tailwind's `font-sans` and `font-serif` utilities */
+  --font-sans: 'EB Garamond', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Literata', ui-serif, Georgia, serif;
+  --font-mono: 'Cascadia Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 
 @layer base {
@@ -49,7 +53,20 @@ html[data-theme="dark"] {
     @apply overflow-y-scroll scroll-smooth;
   }
   body {
-    @apply flex min-h-svh flex-col bg-background font-mono text-foreground selection:bg-accent/75 selection:text-background;
+    @apply flex min-h-svh flex-col bg-background font-serif text-foreground selection:bg-accent/75 selection:text-background;
+    /* Watercolor texture */
+    background-image: url("/assets/watercolor.png");
+    background-repeat: repeat;
+    /* Let the CSS variables still control background color under the texture */
+    background-color: var(--background);
+  }
+  /* Headings use Josefin Sans */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans;
+  }
+  /* Override texture in dark mode */
+  html[data-theme="dark"] body {
+    background-image: url("/assets/dark-watercolor.png");
   }
   a,
   button {
