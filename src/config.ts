@@ -4,7 +4,7 @@ export const SITE = {
   desc: "Software Engineer",
   profile: "https://sarrietav.dev/",
   title: "Sebastian Arrieta",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "og-image.png",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 4,
