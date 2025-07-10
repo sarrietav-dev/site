@@ -38,8 +38,8 @@ html[data-theme="dark"] {
   --color-muted: var(--muted);
   --color-border: var(--border);
   /* Font variables used by Tailwind's `font-sans` and `font-serif` utilities */
-  --font-sans: 'EB Garamond', ui-sans-serif, system-ui, sans-serif;
-  --font-serif: 'Literata', ui-serif, Georgia, serif;
+  --font-sans: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-serif: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
   --font-mono: 'Cascadia Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 
