@@ -8,6 +8,7 @@ import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
 import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
 import LinkButton from "./LinkButton.astro";
 import { SITE } from "@/config";
+import IconBrain from "@/assets/icons/IconBrain.svg";
 
 const { pathname } = Astro.url;
 
@@ -82,6 +83,17 @@ const isActive = (path: string) => {
             <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
               About
             </a>
+          </li>
+          <li class="col-span-2">
+            <LinkButton
+              href="https://brain.sarrietav.dev"
+              class:list={["focus-outline flex justify-center p-3 sm:p-1", { "active-nav [&>svg]:stroke-accent": isActive("/kb") }]}
+              ariaLabel="knowledge base"
+              title="Knowledge Base"
+            >
+              <IconBrain class="hidden sm:inline-block" />
+              <span class="sm:sr-only">KB</span>
+            </LinkButton>
           </li>
           {
             SITE.showArchives && (
