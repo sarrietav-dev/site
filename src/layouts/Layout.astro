@@ -5,6 +5,7 @@ import { SITE } from "@/config";
 import "@/styles/global.css";
 import "@fontsource/cascadia-code";
 import "@fontsource/ibm-plex-mono";
+import "katex"
 
 export interface Props {
   title?: string;
@@ -129,11 +130,6 @@ const structuredData = {
         />
       )
     }
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
-    />
 
     <ClientRouter />
 
