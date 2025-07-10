@@ -8,8 +8,8 @@ interface CommentsProps {
 }
 
 export default function Comments({
-  lightTheme = "gruvbox_light",
-  darkTheme = "gruvbox_dark",
+  lightTheme = "https://brain.sarrietav.dev/static/giscus/light.css",
+  darkTheme = "https://brain.sarrietav.dev/static/giscus/dark.css",
 }: CommentsProps) {
   const [theme, setTheme] = useState(() => {
     if (typeof window === "undefined") return "light";

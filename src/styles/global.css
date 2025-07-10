@@ -5,44 +5,41 @@
 
 :root,
 html[data-theme="light"] {
-  --background: #eee5cd; /* Primary color of the website. Usually the main background. */
-  --foreground: #473e2e; /* Secondary color of the website. Usually the text color. */
-  --accent: #a06441; /* Accent color of the website. Link color, hover color etc. */
-  --muted: #e4d9be; /* Card and scrollbar background color for hover state etc. */
-  --border: #473e2e; /* Border color. Especially used in horizontal row (hr) */
-  --color-fill: #eee5cd; /* Deeper sand background */
-  --color-text-base: #473e2e; /* Darker sepia text */
-  --color-accent: #a06441; /* Keep accent consistent */
-  --color-card: #e4d9be; /* Slightly lighter parchment card */
-  --color-card-muted: #d0c3a5; /* Muted parchment */
-  --color-border: #473e2e; /* Border matches text */
+  --background: #e8f0e8;
+  --foreground: #2c3e3b;
+  --accent: #4b6d63;
+  --muted: #cfd8d3;
+  --border: #2c3e3b;
+  --color-fill: #e8f0e8;
+  --color-text-base: #2c3e3b;
+  --color-accent: #4b6d63;
+  --color-card: #cfd8d3;
+  --color-card-muted: #8a9b95;
+  --color-border: #2c3e3b;
 }
 html[data-theme="dark"] {
-  --background: #1e1b17; /* Primary color of the website. Usually the main background. */
-  --foreground: #d9d2c2; /* Secondary color of the website. Usually the text color. */
-  --accent: #d19b70; /* Accent color of the website. Link color, hover color etc. */
-  --muted: #27231d; /* Card and scrollbar background color for hover state etc. */
-  --border: #5a4e40; /* Border color. Especially used in horizontal row (hr) */
-  --color-fill: #1e1b17; /* Espresso night parchment */
-  --color-text-base: #d9d2c2; /* Aged parchment text */
-  --color-accent: #d19b70; /* Warm candlelight accent */
-  --color-card: #27231d; /* Slightly lighter cocoa card */
-  --color-card-muted: #343029; /* Muted cocoa */
-  --color-border: #5a4e40; /* Weathered leather border */
+  --background: #1a2420;
+  --foreground: #e4ece8;
+  --accent: #5a7b6f;
+  --muted: #3c4d46;
+  --border: #ccd4ce;
+  --color-fill: #1a2420;
+  --color-text-base: #e4ece8;
+  --color-accent: #5a7b6f;
+  --color-card: #3c4d46;
+  --color-card-muted: #697c74;
+  --color-border: #ccd4ce;
 }
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
   --color-muted: var(--muted);
   --color-border: var(--border);
-  /* Font variables used by Tailwind's `font-sans` and `font-serif` utilities */
-  --font-sans: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  --font-serif: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  --font-mono: 'Cascadia Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-sans: 'Merriweather', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-serif: 'Bricolage Grotesque', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
-
 @layer base {
   * {
     @apply border-border outline-accent/75;
@@ -54,19 +51,11 @@ html[data-theme="dark"] {
   }
   body {
     @apply flex min-h-svh flex-col bg-background font-serif text-foreground selection:bg-accent/75 selection:text-background;
-    /* Watercolor texture */
-    background-image: url("/assets/watercolor.png");
-    background-repeat: repeat;
-    /* Let the CSS variables still control background color under the texture */
     background-color: var(--background);
   }
   /* Headings use Josefin Sans */
   h1, h2, h3, h4, h5, h6 {
     @apply font-sans;
-  }
-  /* Override texture in dark mode */
-  html[data-theme="dark"] body {
-    background-image: url("/assets/dark-watercolor.png");
   }
   a,
   button {

@@ -33,7 +33,7 @@ export default defineConfig({
     rehypePlugins: [rehypeKatex],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
-      themes: { light: "gruvbox-light-hard", dark: "gruvbox-dark-hard" },
+      themes: { light: "github-light", dark: "github-dark" },
       defaultColor: false,
       wrap: false,
       transformers: [
