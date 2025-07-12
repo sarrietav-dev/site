@@ -18,7 +18,7 @@ content:
       - { name: featured, label: Featured, type: boolean }
       - { name: draft, label: Draft, type: boolean }
       - { name: tags, label: Tags, type: string, list: true }
-      - { name: description, label: Description, type: string }
+      - { name: description, label: Description, type: string, required: true }
       - { name: body, label: Body, type: rich-text }
   - name: about
     label: About page
