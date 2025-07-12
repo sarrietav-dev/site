@@ -19,8 +19,6 @@
     "@astrojs/sitemap": "^3.4.1",
     "@fontsource/bricolage-grotesque": "^5.2.8",
     "@fontsource/cascadia-code": "^5.2.2",
-    "@fontsource/fira-code": "^5.2.6",
-    "@fontsource/ibm-plex-mono": "^5.2.6",
     "@fontsource/merriweather": "^5.2.9",
     "@giscus/react": "^3.1.0",
     "@resvg/resvg-js": "^2.6.2",
