@@ -1,8 +1,10 @@
 ---
+pubDatetime: 2025-07-12
 title: How to serve fonts in Rails 8
 slug: fonts-rails-8
 featured: false
 draft: true
+description: Adding fonts in Rails is easy
 ---
 *   Add the font to the fonts folder in assets.
     
