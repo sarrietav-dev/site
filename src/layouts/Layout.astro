@@ -5,7 +5,11 @@ import { SITE } from "@/config";
 import "@/styles/global.css";
 import "@fontsource/cascadia-code";
 import "@fontsource/merriweather";
+import merriweather500 from "@fontsource/merriweather/files/merriweather-latin-500-normal.woff2?url";
+import merriweather600 from "@fontsource/merriweather/files/merriweather-latin-600-normal.woff2?url";
+import merriweather700 from "@fontsource/merriweather/files/merriweather-latin-700-normal.woff2?url";
 import "@fontsource/bricolage-grotesque";
+import bricolageGrotesque from "@fontsource/bricolage-grotesque/files/bricolage-grotesque-latin-400-normal.woff2?url";
 import "katex";
 
 export interface Props {
@@ -133,6 +137,38 @@ const structuredData = {
     }
 
     <ClientRouter />
+
+    <link
+      rel="preload"
+      href={merriweather500}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="preload"
+      href={merriweather600}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="preload"
+      href={merriweather700}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="preload"
+      href={bricolageGrotesque}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
 
     <script is:inline src="/toggle-theme.js"></script>
   </head>
