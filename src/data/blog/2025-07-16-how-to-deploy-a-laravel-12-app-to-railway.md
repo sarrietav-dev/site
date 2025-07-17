@@ -57,7 +57,7 @@ Go to the **Variables** tab, then open the **Raw Editor**. Paste the contents of
 - Set `APP_DEBUG=false`
 - Update your database settings:
 
-  ```
+  ```dotenv
   DB_CONNECTION=pgsql
   DB_URL=${{Postgres.DATABASE_URL}}
   ```
@@ -156,7 +156,7 @@ In `AppServiceProvider.php`, add:
 public function boot(): void
 {
     if (app()->environment('production')) {
-        URL::forceScheme('https'); // [\!code highlight]
+        URL::forceScheme('https'); // [!code highlight]
     }
 }
 ```
@@ -179,7 +179,7 @@ This avoids issues like:
 2. Once deployed, go to **Settings > Networking**, and generate a **public domain**. Your app will be accessible at port `8080`.
 3. Update your `.env`:
 
-```env
+```dotEnv
 APP_URL=https://your-new-url.railway.app
 ASSET_URL=https://your-new-url.railway.app
 ```
