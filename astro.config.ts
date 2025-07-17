@@ -9,6 +9,7 @@ import {
   transformerNotationDiff,
   transformerNotationHighlight,
   transformerNotationWordHighlight,
+  transformerMetaHighlight,
 } from "@shikijs/transformers";
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import { SITE } from "./src/config";
@@ -57,8 +58,8 @@ export default defineConfig({
       },
       wrap: false,
       transformers: [
+        transformerMetaHighlight(),
         transformerFileName({ style: "v2", hideDot: false }),
-        transformerNotationHighlight(),
         transformerNotationWordHighlight(),
         transformerNotationDiff({ matchAlgorithm: "v3" }),
       ],

@@ -55,7 +55,7 @@ Go to the **Variables** tab, then open the **Raw Editor**. Paste the contents of
 
 - Set `APP_ENV=production`
 - Set `APP_DEBUG=false`
-- Update your database settings:
+- Update your database connection settings to use the Railway PostgreSQL instance:
 
   ```dotenv
   DB_CONNECTION=pgsql
@@ -99,9 +99,7 @@ You’ll need two additional services: one for running **cron jobs** and another
 
 Add the following to your project root:
 
-**`run-cron.sh`**
-
-```bash
+```bash file="run-cron.sh"
 #!/bin/bash
 # Make sure this file is executable: chmod +x run-cron.sh
 
@@ -112,9 +110,7 @@ while [ true ]; do
 done
 ```
 
-**`run-worker.sh`**
-
-```bash
+```bash file="run-worker.sh"
 #!/bin/bash
 # Make sure this file is executable: chmod +x run-worker.sh
 
@@ -152,11 +148,11 @@ chmod +x ./run-worker.sh && sh ./run-worker.sh
 
 In `AppServiceProvider.php`, add:
 
-```php
+```php {3-5} file="AppServiceProvider.php"
 public function boot(): void
 {
     if (app()->environment('production')) {
-        URL::forceScheme('https'); // [!code highlight]
+        URL::forceScheme('https');
     }
 }
 ```
@@ -177,7 +173,7 @@ This avoids issues like:
 
 1. Click **Deploy** on your Laravel service.
 2. Once deployed, go to **Settings > Networking**, and generate a **public domain**. Your app will be accessible at port `8080`.
-3. Update your `.env`:
+3. Update your service secrets to include the new domain:
 
 ```dotenv
 APP_URL=https://your-new-url.railway.app
