@@ -179,7 +179,7 @@ This avoids issues like:
 2. Once deployed, go to **Settings > Networking**, and generate a **public domain**. Your app will be accessible at port `8080`.
 3. Update your `.env`:
 
-```dotEnv
+```dotenv
 APP_URL=https://your-new-url.railway.app
 ASSET_URL=https://your-new-url.railway.app
 ```
