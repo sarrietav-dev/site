@@ -411,7 +411,40 @@
         "entity.name.operator.custom-literal"
       ],
       "settings": {
-        "foreground": "#2d5a2d"
+        "foreground": "#1e7c3a",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "meta.function-call",
+        "variable.function"
+      ],
+      "settings": {
+        "foreground": "#24996d",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "keyword",
+        "keyword.control",
+        "storage.type"
+      ],
+      "settings": {
+        "foreground": "#227c6b",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": [
+        "entity.name.type",
+        "support.class",
+        "support.type"
+      ],
+      "settings": {
+        "foreground": "#5a7b3a",
+        "fontStyle": "bold"
       }
     },
     {
