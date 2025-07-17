@@ -12,6 +12,22 @@ import {
 } from "@shikijs/transformers";
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import { SITE } from "./src/config";
+import green_shiki_theme from "./green_shiki_theme.json";
+import green_light_shiki_theme from "./green_light_shiki_theme.json";
+
+const lightTheme = {
+  name: green_light_shiki_theme.name,
+  fg: green_light_shiki_theme.colors["editor.foreground"],
+  bg: green_light_shiki_theme.colors["editor.background"],
+  settings: green_light_shiki_theme.tokenColors,
+};
+
+const darkTheme = {
+  name: green_shiki_theme.name,
+  fg: green_shiki_theme.colors["editor.foreground"],
+  bg: green_shiki_theme.colors["editor.background"],
+  settings: green_shiki_theme.tokenColors,
+};
 
 import react from "@astrojs/react";
 
@@ -33,8 +49,12 @@ export default defineConfig({
     rehypePlugins: [rehypeKatex],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
-      themes: { light: "github-light", dark: "github-dark" },
+      // themes: { light: "github-light", dark: "github-dark" },
       defaultColor: false,
+      themes: {
+        light: lightTheme,
+        dark: darkTheme,
+      },
       wrap: false,
       transformers: [
         transformerFileName({ style: "v2", hideDot: false }),
