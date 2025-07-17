@@ -10,7 +10,7 @@
     h3,
     h4,
     th {
-      @apply mb-3 text-foreground font-sans;
+      @apply mb-3 font-sans text-foreground;
     }
 
     h3 {
@@ -23,7 +23,7 @@
     ul,
     figcaption,
     table {
-      @apply text-foreground font-serif;
+      @apply font-serif text-foreground;
     }
 
     a {
@@ -66,7 +66,7 @@
     }
 
     code {
-      @apply rounded bg-muted/75 p-1 break-words text-foreground font-mono before:content-none after:content-none;
+      @apply rounded bg-muted/75 p-1 font-mono break-words text-foreground before:content-none after:content-none;
     }
 
     .astro-code code {
@@ -92,12 +92,17 @@
 
   /* ===== Code Blocks & Syntax Highlighting ===== */
   .astro-code {
-    @apply border bg-(--shiki-light-bg) text-(--shiki-light) outline-border [&_span]:text-(--shiki-light) font-mono;
+    @apply border bg-(--shiki-light-bg) font-mono text-(--shiki-light) outline-border [&_span]:text-(--shiki-light);
   }
 
   html[data-theme="dark"] .astro-code {
-    @apply bg-(--shiki-dark-bg) text-(--shiki-dark) [&_span]:text-(--shiki-dark) font-mono;
+    @apply bg-(--shiki-dark-bg) font-mono text-(--shiki-dark) [&_span]:text-(--shiki-dark);
   }
+
+  .line {
+    @apply inline-block w-full;
+  }
+
 
   /* Styles for Shiki transformers */
   /* https://shiki.style/packages/transformers */
