@@ -179,6 +179,17 @@ const structuredData = {
   </head>
   <body>
     <slot />
+    <!-- <script -->
+    <!--   src="https://static.esvmedia.org/crossref/crossref.min.js" -->
+    <!--   type="text/javascript"></script> -->
+
+    <script
+      src="https://www.biblegateway.com/public/link-to-us/tooltips/bglinks.js"
+      type="text/javascript"></script>
+    <script type="text/javascript">
+      BGLinks.version = "ESV";
+      BGLinks.linkVerses();
+    </script>
   </body>
 </html>
 
