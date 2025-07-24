@@ -3,7 +3,7 @@ pubDatetime: 2025-07-24
 title: On Compassion for the Exiled People of Judah
 slug: exiles-judah
 featured: false
-draft: false
+draft: true
 tags:
   - faith
 description: Discover the deep sorrow and resilience behind the Babylonian exile through a compassionate lens. This reflective post explores the destruction of Jerusalem, the trauma of displacement, and how we can still mourn and learn from the suffering of the Jewish exiles today.
@@ -29,12 +29,12 @@ You can trace this story in _1 & 2 Kings_, which parallel the reigns of the king
 
 Throughout this period, the people committed many grievous sins:
 
-- **Idolatry** _(Exodus 20:3–4)_ – They worshiped the gods of neighboring nations, building high places, Asherah poles, and altars to Baal. _(1 Kings 16:30–33, 2 Kings 17:10–12)_
+- **Idolatry** _(Exodus 20:3–4)_ – They worshiped the gods of neighboring nations, building high places, Asherah poles, and altars to Baal. _(1 Kings 16:30–33; 2 Kings 17:10–12)_
 - **Injustice** _(Deuteronomy 16:19)_ – Widows and the poor were oppressed, and leaders grew corrupt and greedy. _(Isaiah 1:23, Amos 5:11–12)_
-- **Child sacrifice** _Leviticus 18:21_ – They offered their own children in fire to **Molech**, a horrific practice God had strictly forbidden. _(Jeremiah 7:31, 2 Kings 16:3, 2 Kings 21:6)_
+- **Child sacrifice** _Leviticus 18:21_ – They offered their own children in fire to **Molech**, a horrific practice God had strictly forbidden. _(Jeremiah 7:31; 2 Kings 16:3; 2 Kings 21:6)_
 - **Political compromise** _Isaiah 31:1_ – They trusted in alliances with Egypt, Assyria, and Babylon rather than in the Lord. _(2 Kings 18:21, Isaiah 30:1–3)_
-- **Sexual immorality** _Exodus 20:14, Deuteronomy 23:17_ – Temple prostitution, adultery, and spiritual infidelity became common. _Ezekiel 16:25–32, Hosea 4:12–14_
-- **Religious hypocrisy** _Isaiah 29:13_ – They observed rituals but their hearts were far from God. _Jeremiah 7:9–11, Micah 6:6–8_
+- **Sexual immorality** _Exodus 20:14, Deuteronomy 23:17_ – Temple prostitution, adultery, and spiritual infidelity became common. (_Ezekiel 16:25–32, Hosea 4:12–14_)
+- **Religious hypocrisy** _Isaiah 29:13_ – They observed rituals but their hearts were far from God. (_Jeremiah 7:9–11, Micah 6:6–8_)
 
 ## The Voice of the Prophets
 
