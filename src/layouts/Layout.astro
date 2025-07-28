@@ -184,22 +184,58 @@ const structuredData = {
     <!--   type="text/javascript"></script> -->
 
     <!-- Fix dashes and semicolons in references -->
+
+    <!-- In your Astro page or layout -->
     <script is:inline type="text/javascript">
       (function normalizeBibleReferences() {
-        const walker = document.createTreeWalker(
-          document.body,
-          NodeFilter.SHOW_TEXT
-        );
-        const enDashFix = /[\u2013\u2014]/g;
-        const multipleRefsFix = /;\s*/g;
+        const dashRegex = /[\u2013\u2014]/g;
+        const semicolonRegex = /;\s*/g;
 
-        let node;
-        while ((node = walker.nextNode())) {
-          let txt = node.nodeValue;
-          txt = txt.replace(enDashFix, "-");
-          txt = txt.replace(/;/g, "; ");
-          node.nodeValue = txt;
+        function cleanTextNode(node) {
+          if (node.nodeType !== Node.TEXT_NODE) return;
+          if (!/[\u2013\u2014;]/.test(node.nodeValue)) return;
+          node.nodeValue = node.nodeValue
+            .replace(dashRegex, "-")
+            .replace(semicolonRegex, "; ");
         }
+
+        function walkAndNormalize(root) {
+          const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+            acceptNode(node) {
+              return /[\u2013\u2014;]/.test(node.nodeValue)
+                ? NodeFilter.FILTER_ACCEPT
+                : NodeFilter.FILTER_SKIP;
+            },
+          });
+
+          let current;
+          while ((current = walker.nextNode())) {
+            cleanTextNode(current);
+          }
+        }
+
+        // Run once when the page loads
+        document.addEventListener("DOMContentLoaded", () => {
+          walkAndNormalize(document.body);
+
+          // Watch for new content (hydrated islands, etc.)
+          const observer = new MutationObserver(mutations => {
+            for (const mutation of mutations) {
+              for (const node of mutation.addedNodes) {
+                if (node.nodeType === Node.TEXT_NODE) {
+                  cleanTextNode(node);
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                  walkAndNormalize(node);
+                }
+              }
+            }
+          });
+
+          observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+          });
+        });
       })();
     </script>
 
