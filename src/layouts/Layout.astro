@@ -183,10 +183,30 @@ const structuredData = {
     <!--   src="https://static.esvmedia.org/crossref/crossref.min.js" -->
     <!--   type="text/javascript"></script> -->
 
+    <!-- Fix dashes in verse references -->
+    <script is:inline type="text/javascript">
+      (function sanitizeVerseDashes() {
+        const walk = document.createTreeWalker(
+          document.body,
+          NodeFilter.SHOW_TEXT
+        );
+        const dashFixRegex = /[\u2013\u2014]/g;
+
+        let node;
+        while ((node = walk.nextNode())) {
+          if (dashFixRegex.test(node.nodeValue)) {
+            node.nodeValue = node.nodeValue.replace(dashFixRegex, "-");
+          }
+        }
+      })();
+    </script>
+
+    <!-- Load BGLinks and initialize -->
     <script
+      is:inline
       src="https://www.biblegateway.com/public/link-to-us/tooltips/bglinks.js"
       type="text/javascript"></script>
-    <script type="text/javascript">
+    <script is:inline type="text/javascript">
       BGLinks.version = "ESV";
       BGLinks.linkVerses();
     </script>
