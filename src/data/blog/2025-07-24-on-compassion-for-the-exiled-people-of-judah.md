@@ -130,7 +130,7 @@ Some Jews fared better than others. Most became servants to Babylonian landlords
 
 ## A Bitter Parallel
 
-Scholars and historians believe the exiles followed the **Fertile Crescent**, a route that curved north through Syria and then southeast along the Euphrates River—avoiding the deadly Arabian desert. Strikingly, this was the same route that **Abraham** once took in obedience to God, when he left **Ur of the Chaldeans** to enter the Promised Land (Genesis 11:31; 12:1–5).
+Scholars and historians believe the exiles followed the **Fertile Crescent**, a route that curved north through Syria and then southeast along the Euphrates River—avoiding the deadly Arabian desert. Strikingly, this was the same route that **Abraham** once took in obedience to God, when he left **Ur of the Chaldeans** to enter the Promised Land (Genesis 11:31, 12:1–5).
 
 How haunting that the very path once walked in **faith and promise** was now walked in **judgment and sorrow**.
 
@@ -224,4 +224,3 @@ And the prophets—while warning of judgment—also whispered of **restoration**
 > — _Isaiah 40:1–2_
 
 They spoke of a day when exile would end, when God would dwell with His people again. A day when **a King would come**—a Servant who would carry their griefs and heal their wounds (Isaiah 53:3–5). A day when **death itself would be no more** (Isaiah 25:8).
-
