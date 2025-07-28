@@ -3,7 +3,7 @@ pubDatetime: 2025-07-24
 title: On Compassion for the Exiled People of Judah
 slug: exiles-judah
 featured: false
-draft: true
+draft: false
 tags:
   - faith
 description: Discover the deep sorrow and resilience behind the Babylonian exile through a compassionate lens. This reflective post explores the destruction of Jerusalem, the trauma of displacement, and how we can still mourn and learn from the suffering of the Jewish exiles today.
@@ -135,7 +135,7 @@ Scholars and historians believe the exiles followed the **Fertile Crescent**, a 
 How haunting that the very path once walked in **faith and promise** was now walked in **judgment and sorrow**.
 
 ![https://biblemapper.com/](../../../public/exile-to-babylon.jpg)
-_This image is by the https://biblemapper.com/_
+_This image is by the <https://biblemapper.com/>_
 
 Families were torn apart. Children were killed. The land promised to Abraham (Genesis 17:8), the city where David reigned (2 Samuel 5:7), the Temple where God's glory once filled the Holy of Holies (1 Kings 8:10-11)—**all gone**. The people who once declared, _“God is with us”_ (Isaiah 8:10), now sat enslaved and mocked in a land of strange gods and strange tongues.
 
@@ -153,15 +153,13 @@ The God of Abraham, Isaac, and Jacob—the One who promised to dwell with His pe
 The exile shattered their foundational beliefs:
 
 - Was the **covenant** broken? (Leviticus 26:14–33; Deuteronomy 28)
-    
 - Was the line of **David**—through whom the Messiah would come—cut off forever? (2 Samuel 7:12–16)
-    
 - Did God's **presence** leave them altogether?
-    
 
 Ezekiel, himself in exile, had a disturbing vision of the **glory of the Lord departing from the Temple** (Ezekiel 10:18–19)—a confirmation of what they feared most: God had left.
 
 They had **no land**, **no temple**, **no sacrifices**, and **no king**. Everything that once made them God’s chosen people had seemingly been stripped away.
+
 # How Shall We Sing the Lord’s Song?
 
 > By the waters of Babylon,  
@@ -226,3 +224,4 @@ And the prophets—while warning of judgment—also whispered of **restoration**
 > — _Isaiah 40:1–2_
 
 They spoke of a day when exile would end, when God would dwell with His people again. A day when **a King would come**—a Servant who would carry their griefs and heal their wounds (Isaiah 53:3–5). A day when **death itself would be no more** (Isaiah 25:8).
+
