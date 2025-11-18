@@ -1,0 +1,165 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Socials from "@/components/Socials.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import Card from "@/components/Card.astro";
+import Hr from "@/components/Hr.astro";
+import getSortedPosts from "@/utils/getSortedPosts";
+import IconRss from "@/assets/icons/IconRss.svg";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import { SITE } from "@/config";
+import { SOCIALS } from "@/constants";
+import { SUPPORTED_LOCALES, type Locale } from "@/i18n/locales";
+import { t } from "@/i18n";
+
+export async function getStaticPaths() {
+  return SUPPORTED_LOCALES.map(lang => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: Locale };
+
+const allPosts = await getCollection("blog");
+const posts = allPosts.filter(post => post.data.lang === lang);
+
+const sortedPosts = getSortedPosts(posts);
+const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+---
+
+<Layout>
+  <Header />
+  <main id="main-content" data-layout="index">
+    <section id="hero" class="pt-8 pb-6">
+      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
+        {lang === "es" ? "Hola, soy Sebastián." : "Hi, I'm Sebastián."}
+      </h1>
+      <a
+        target="_blank"
+        href={`/${lang}/rss.xml`}
+        class="inline-block"
+        aria-label="rss feed"
+        title="RSS Feed"
+      >
+        <IconRss
+          width={20}
+          height={20}
+          class="scale-125 stroke-accent stroke-3 rtl:-rotate-90"
+        />
+        <span class="sr-only">RSS Feed</span>
+      </a>
+
+      <p>
+        {
+          lang === "es"
+            ? "Soy un desarrollador de software colombiano dedicado a construir sistemas que sirvan a las personas y generen un cambio significativo."
+            : "I'm a Colombian software developer devoted to building systems that serve people and spark meaningful change."
+        }
+      </p>
+      <p class="mt-2">
+        {
+          lang === "es"
+            ? "Aquí reflexiono sobre tecnología, fe y trabajo con propósito, compartiendo las lecciones que aprendo en el camino."
+            : "Here I reflect on technology, faith, and purposeful work, sharing the lessons I learn along the way."
+        }
+      </p>
+      <p class="mt-2">
+        {
+          lang === "es"
+            ? "¿Quieres ver lo que estoy aprendiendo o explorando actualmente? Visita mi"
+            : "Want to see what I'm currently learning or exploring? Visit my"
+        }
+        <a
+          href="https://brain.sarrietav.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-medium underline hover:text-accent"
+          >{
+            lang === "es" ? "jardín digital" : "digital garden"
+          }</a
+        >{
+          lang === "es"
+            ? ", un espacio tipo Zettelkasten donde comparto notas e ideas mientras se desarrollan."
+            : ", a Zettelkasten-like space where I share notes and ideas as they develop."
+        }
+      </p>
+      <p class="mt-2">
+        {
+          lang === "es"
+            ? "Este sitio principal presenta solo mi escritura completa y pulida—mis propias reflexiones y ensayos después de que las ideas han madurado."
+            : "This main site features only my completed, polished writing—my own reflections and essays after ideas have matured."
+        }
+      </p>
+      {
+        // only display if at least one social link is enabled
+        SOCIALS.length > 0 && (
+          <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
+            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">
+              {lang === "es" ? "Redes Sociales:" : "Social Links:"}
+            </div>
+            <Socials />
+          </div>
+        )
+      }
+    </section>
+
+    <Hr />
+
+    {
+      featuredPosts.length > 0 && (
+        <>
+          <section id="featured" class="pt-12 pb-6">
+            <h2 class="text-2xl font-semibold tracking-wide">
+              {lang === "es" ? "Destacados" : "Featured"}
+            </h2>
+            <ul>
+              {featuredPosts.map(data => (
+                <Card variant="h3" {...data} />
+              ))}
+            </ul>
+          </section>
+          {recentPosts.length > 0 && <Hr />}
+        </>
+      )
+    }
+
+    {
+      recentPosts.length > 0 && (
+        <section id="recent-posts" class="pt-12 pb-6">
+          <h2 class="text-2xl font-semibold tracking-wide">
+            {t(lang, "common.recentPosts")}
+          </h2>
+          <ul>
+            {recentPosts.map(
+              (data, index) =>
+                index < SITE.postPerIndex && <Card variant="h3" {...data} />
+            )}
+          </ul>
+        </section>
+      )
+    }
+
+    <div class="my-8 text-center">
+      <LinkButton href={`/${lang}/posts/`}>
+        {t(lang, "common.allPosts")}
+        <IconArrowRight class="inline-block rtl:-rotate-180" />
+      </LinkButton>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
+      ?.dataset?.layout;
+    if (indexLayout) {
+      const lang = window.location.pathname.split("/")[1];
+      sessionStorage.setItem("backUrl", `/${lang}/`);
+    }
+  });
+</script>

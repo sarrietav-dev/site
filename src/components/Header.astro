@@ -9,8 +9,14 @@ import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
 import LinkButton from "./LinkButton.astro";
 import { SITE } from "@/config";
 import IconBrain from "@/assets/icons/IconBrain.svg";
+import { DEFAULT_LOCALE, type Locale } from "@/i18n/locales";
+import { t } from "@/i18n";
 
 const { pathname } = Astro.url;
+
+// Extract language from URL (e.g., /en/posts -> en)
+const pathParts = pathname.split("/").filter(p => p.trim());
+const lang = (pathParts[0] || DEFAULT_LOCALE) as Locale;
 
 // Remove trailing slash from current pathname if exists
 const currentPath =
@@ -20,8 +26,11 @@ const isActive = (path: string) => {
   const currentPathArray = currentPath.split("/").filter(p => p.trim());
   const pathArray = path.split("/").filter(p => p.trim());
 
-  return currentPath === path || currentPathArray[0] === pathArray[0];
+  return currentPath === path || currentPathArray[1] === pathArray[1];
 };
+
+// Get current path without language prefix for switching
+const pathWithoutLang = "/" + pathParts.slice(1).join("/");
 ---
 
 <header>
@@ -41,7 +50,7 @@ const isActive = (path: string) => {
       class="relative flex w-full items-baseline justify-between bg-transparent p-4 sm:items-center sm:py-6"
     >
       <a
-        href="/"
+        href={`/${lang}/`}
         class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
       >
         {SITE.title}
@@ -70,18 +79,18 @@ const isActive = (path: string) => {
           ]}
         >
           <li class="col-span-2">
-            <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
-              Posts
+            <a href={`/${lang}/posts`} class:list={{ "active-nav": isActive(`/${lang}/posts`) }}>
+              {t(lang, "nav.posts")}
             </a>
           </li>
           <li class="col-span-2">
-            <a href="/tags" class:list={{ "active-nav": isActive("/tags") }}>
-              Tags
+            <a href={`/${lang}/tags`} class:list={{ "active-nav": isActive(`/${lang}/tags`) }}>
+              {t(lang, "nav.tags")}
             </a>
           </li>
           <li class="col-span-2">
-            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
-              About
+            <a href={`/${lang}/about`} class:list={{ "active-nav": isActive(`/${lang}/about`) }}>
+              {t(lang, "nav.about")}
             </a>
           </li>
           <li class="col-span-2">
@@ -99,35 +108,48 @@ const isActive = (path: string) => {
             SITE.showArchives && (
               <li class="col-span-2">
                 <LinkButton
-                  href="/archives"
+                  href={`/${lang}/archives`}
                   class:list={[
                     "focus-outline flex justify-center p-3 sm:p-1",
                     {
-                      "active-nav [&>svg]:stroke-accent": isActive("/archives"),
+                      "active-nav [&>svg]:stroke-accent": isActive(`/${lang}/archives`),
                     },
                   ]}
                   ariaLabel="archives"
-                  title="Archives"
+                  title={t(lang, "nav.archives")}
                 >
                   <IconArchive class="hidden sm:inline-block" />
-                  <span class="sm:sr-only">Archives</span>
+                  <span class="sm:sr-only">{t(lang, "nav.archives")}</span>
                 </LinkButton>
               </li>
             )
           }
           <li class="col-span-1 flex items-center justify-center">
             <LinkButton
-              href="/search"
+              href={`/${lang}/search`}
               class:list={[
                 "focus-outline flex p-3 sm:p-1",
-                { "[&>svg]:stroke-accent": isActive("/search") },
+                { "[&>svg]:stroke-accent": isActive(`/${lang}/search`) },
               ]}
               ariaLabel="search"
-              title="Search"
+              title={t(lang, "nav.search")}
             >
               <IconSearch />
-              <span class="sr-only">Search</span>
+              <span class="sr-only">{t(lang, "nav.search")}</span>
             </LinkButton>
+          </li>
+          <li class="col-span-1 flex items-center justify-center">
+            <div class="relative">
+              <select
+                id="lang-selector"
+                class="focus-outline cursor-pointer bg-transparent p-3 sm:p-1 text-sm font-medium hover:text-accent border border-transparent rounded"
+                aria-label="Select Language"
+                title="Select Language"
+              >
+                <option value="en" selected={lang === "en"}>EN</option>
+                <option value="es" selected={lang === "es"}>ES</option>
+              </select>
+            </div>
           </li>
           {
             SITE.lightAndDarkMode && (
@@ -173,8 +195,32 @@ const isActive = (path: string) => {
     });
   }
 
+  function setupLanguageSelector() {
+    const langSelector = document.querySelector("#lang-selector") as HTMLSelectElement;
+    if (!langSelector) return;
+
+    langSelector.addEventListener("change", (e) => {
+      const newLang = (e.target as HTMLSelectElement).value;
+      const pathParts = window.location.pathname.split("/").filter(p => p.trim());
+      const currentLang = pathParts[0];
+
+      // Replace current language in path with new language
+      if (currentLang === "en" || currentLang === "es") {
+        pathParts[0] = newLang;
+        window.location.pathname = "/" + pathParts.join("/");
+      } else {
+        // If no language in path, add it
+        window.location.pathname = `/${newLang}${window.location.pathname}`;
+      }
+    });
+  }
+
   toggleNav();
+  setupLanguageSelector();
 
   // Runs on view transitions navigation
-  document.addEventListener("astro:after-swap", toggleNav);
+  document.addEventListener("astro:after-swap", () => {
+    toggleNav();
+    setupLanguageSelector();
+  });
 </script>

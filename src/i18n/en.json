@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "posts": "Posts",
+    "tags": "Tags",
+    "about": "About",
+    "archives": "Archives",
+    "search": "Search"
+  },
+  "common": {
+    "readMore": "Read More",
+    "tags": "Tags",
+    "back": "Back",
+    "allPosts": "All Posts",
+    "allTags": "All Tags",
+    "recentPosts": "Recent Posts",
+    "viewAll": "View all posts",
+    "noPostsFound": "No posts found",
+    "searchPlaceholder": "Search for articles...",
+    "postsWithTag": "Posts with tag",
+    "published": "Published",
+    "updated": "Updated",
+    "minutes": "min read"
+  },
+  "archives": {
+    "title": "Archives",
+    "description": "All the articles I've posted, organized by date."
+  },
+  "tags": {
+    "title": "Tags",
+    "description": "All the tags used in posts."
+  }
+}
