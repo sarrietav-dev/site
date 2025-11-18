@@ -15,10 +15,16 @@ export async function getStaticPaths() {
   const paths = [];
   for (const locale of SUPPORTED_LOCALES) {
     const localePosts = posts.filter(post => post.data.lang === locale);
-    const postResults = localePosts.map(post => ({
-      params: { lang: locale, slug: getPath(post.id, post.filePath, false) },
-      props: { post },
-    }));
+    const postResults = localePosts.map(post => {
+      let slug = getPath(post.id, post.filePath, false);
+      // Remove language prefix from slug since we're already in [lang] route
+      slug = slug.replace(`/${locale}/`, '/').replace(`${locale}/`, '');
+
+      return {
+        params: { lang: locale, slug },
+        props: { post },
+      };
+    });
     paths.push(...postResults);
   }
 

@@ -28,9 +28,6 @@ const isActive = (path: string) => {
 
   return currentPath === path || currentPathArray[1] === pathArray[1];
 };
-
-// Get current path without language prefix for switching
-const pathWithoutLang = "/" + pathParts.slice(1).join("/");
 ---
 
 <header>

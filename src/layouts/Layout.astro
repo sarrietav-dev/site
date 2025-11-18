@@ -191,7 +191,6 @@ const structuredData = {
           NodeFilter.SHOW_TEXT
         );
         const enDashFix = /[\u2013\u2014]/g;
-        const multipleRefsFix = /;\s*/g;
 
         let node;
         while ((node = walker.nextNode())) {
