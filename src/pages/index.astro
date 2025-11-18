@@ -1,5 +1,7 @@
 ---
 import { DEFAULT_LOCALE } from "@/i18n/locales";
+
+const redirectUrl = `/${DEFAULT_LOCALE}/`;
 ---
 
 <!DOCTYPE html>
@@ -7,9 +9,9 @@ import { DEFAULT_LOCALE } from "@/i18n/locales";
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=/{DEFAULT_LOCALE}/">
-  <script is:inline>
-    window.location.replace(`/${DEFAULT_LOCALE}/`);
+  <meta http-equiv="refresh" content={`0; url=${redirectUrl}`}>
+  <script is:inline define:vars={{ redirectUrl }}>
+    window.location.replace(redirectUrl);
   </script>
   <title>Redirecting...</title>
   <style>
