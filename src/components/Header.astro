@@ -201,7 +201,18 @@ const isActive = (path: string) => {
       const pathParts = window.location.pathname.split("/").filter(p => p.trim());
       const currentLang = pathParts[0];
 
-      // Replace current language in path with new language
+      // Check if we're on a post page
+      const isPostPage = pathParts.some(part => part === "posts") ||
+                         window.location.pathname.match(/\/posts\/[^/]+\/[^/]+/);
+
+      if (isPostPage) {
+        // For post pages, redirect to posts index in the new language
+        // This is because post slugs are different between languages
+        window.location.pathname = `/${newLang}/posts`;
+        return;
+      }
+
+      // For non-post pages, swap the language segment
       if (currentLang === "en" || currentLang === "es") {
         pathParts[0] = newLang;
         window.location.pathname = "/" + pathParts.join("/");
