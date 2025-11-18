@@ -28,5 +28,27 @@
   "tags": {
     "title": "Etiquetas",
     "description": "Todas las etiquetas utilizadas en los artículos."
+  },
+  "share": {
+    "title": "Compartir este artículo en:",
+    "whatsapp": "Compartir este artículo vía WhatsApp",
+    "facebook": "Compartir este artículo en Facebook",
+    "x": "Compartir este artículo en X",
+    "telegram": "Compartir este artículo vía Telegram",
+    "pinterest": "Compartir este artículo en Pinterest",
+    "linkedin": "Compartir este artículo en LinkedIn",
+    "mail": "Compartir este artículo vía email"
+  },
+  "post": {
+    "previousPost": "Artículo Anterior",
+    "nextPost": "Siguiente Artículo"
+  },
+  "footer": {
+    "copyright": "Copyright",
+    "allRightsReserved": "Todos los derechos reservados",
+    "onGitHub": "{name} en GitHub",
+    "onX": "{name} en X",
+    "onLinkedIn": "{name} en LinkedIn",
+    "sendEmail": "Enviar un email a {name}"
   }
 }
