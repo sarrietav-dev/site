@@ -7,6 +7,7 @@ slug: principio-dios
 description: principio
 pubDatetime: 2025-09-08T04:54:08Z
 lang: es
+translationKey: beginning-god
 ---
 En el primer capítulo del libro de Génesis hay estas palabras impactantes:
 

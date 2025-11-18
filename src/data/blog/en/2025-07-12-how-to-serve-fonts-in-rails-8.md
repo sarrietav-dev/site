@@ -6,6 +6,7 @@ featured: false
 draft: true
 description: Adding fonts in Rails is easy
 lang: en
+translationKey: rails-fonts
 ---
 
 - Add the font to the fonts folder in assets.

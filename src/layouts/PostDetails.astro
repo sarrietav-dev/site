@@ -37,6 +37,7 @@ const {
   timezone,
   tags,
   hideEditPost,
+  translationKey,
 } = post.data;
 
 const { Content } = await render(post);
@@ -91,10 +92,33 @@ const currentPostIndex = allPosts.findIndex(a => a.id === post.id);
 const prevPost = currentPostIndex !== 0 ? allPosts[currentPostIndex - 1] : null;
 const nextPost =
   currentPostIndex !== allPosts.length ? allPosts[currentPostIndex + 1] : null;
+
+/* ========== Translation URLs ========== */
+
+// Create a mapping of language -> URL for all translations of this post
+const translationUrls: Record<string, string> = {};
+if (translationKey) {
+  const translatedPosts = posts.filter(p => p.data.translationKey === translationKey);
+  translatedPosts.forEach(p => {
+    const postLang = p.data.lang;
+    let slug = getPath(p.id, p.filePath, false);
+    slug = slug.replace(`/${postLang}/`, '/').replace(`${postLang}/`, '').replace(/^\/+/, '');
+    translationUrls[postLang] = `/${postLang}/posts/${slug}`;
+  });
+}
 ---
 
 <Layout {...layoutProps}>
   <Header />
+  {translationKey && (
+    <script is:inline define:vars={{ translationKey, lang, translationUrls }}>
+      window.__POST_TRANSLATION__ = {
+        key: translationKey,
+        lang,
+        urls: translationUrls
+      };
+    </script>
+  )}
   <BackButton />
   <main
     id="main-content"

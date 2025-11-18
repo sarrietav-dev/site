@@ -7,6 +7,7 @@ slug: beginning-god
 description: beginin
 pubDatetime: 2025-09-08T04:54:08Z
 lang: en
+translationKey: beginning-god
 ---
 On the first chapter of the book of Genesis there are these stricking words:
 
