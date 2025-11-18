@@ -109,16 +109,7 @@ if (translationKey) {
 ---
 
 <Layout {...layoutProps}>
-  <Header />
-  {translationKey && (
-    <script is:inline define:vars={{ translationKey, lang, translationUrls }}>
-      window.__POST_TRANSLATION__ = {
-        key: translationKey,
-        lang,
-        urls: translationUrls
-      };
-    </script>
-  )}
+  <Header translationUrls={translationUrls} />
   <BackButton />
   <main
     id="main-content"

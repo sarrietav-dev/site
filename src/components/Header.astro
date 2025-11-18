@@ -12,6 +12,12 @@ import IconBrain from "@/assets/icons/IconBrain.svg";
 import { DEFAULT_LOCALE, type Locale } from "@/i18n/locales";
 import { t } from "@/i18n";
 
+interface Props {
+  translationUrls?: Record<string, string>;
+}
+
+const { translationUrls } = Astro.props;
+
 const { pathname } = Astro.url;
 
 // Extract language from URL (e.g., /en/posts -> en)
@@ -28,6 +34,27 @@ const isActive = (path: string) => {
 
   return currentPath === path || currentPathArray[1] === pathArray[1];
 };
+
+// Generate language switch URLs
+const getLanguageSwitchUrl = (targetLang: Locale): string => {
+  // If translation URLs are provided (we're on a post page), use them
+  if (translationUrls && translationUrls[targetLang]) {
+    return translationUrls[targetLang];
+  }
+
+  // For other pages, swap the language segment
+  if (pathParts[0] === "en" || pathParts[0] === "es") {
+    const newParts = [...pathParts];
+    newParts[0] = targetLang;
+    return "/" + newParts.join("/");
+  }
+
+  // Default: go to home page in target language
+  return `/${targetLang}/`;
+};
+
+const enUrl = getLanguageSwitchUrl("en");
+const esUrl = getLanguageSwitchUrl("es");
 ---
 
 <header>
@@ -135,18 +162,30 @@ const isActive = (path: string) => {
               <span class="sr-only">{t(lang, "nav.search")}</span>
             </LinkButton>
           </li>
-          <li class="col-span-1 flex items-center justify-center">
-            <div class="relative">
-              <select
-                id="lang-selector"
-                class="focus-outline cursor-pointer bg-transparent p-3 sm:p-1 text-sm font-medium hover:text-accent border border-transparent rounded"
-                aria-label="Select Language"
-                title="Select Language"
-              >
-                <option value="en" selected={lang === "en"}>EN</option>
-                <option value="es" selected={lang === "es"}>ES</option>
-              </select>
-            </div>
+          <li class="col-span-1 flex items-center justify-center gap-1">
+            <a
+              href={enUrl}
+              class:list={[
+                "focus-outline px-2 py-1 text-sm font-medium rounded transition-colors",
+                lang === "en" ? "text-accent" : "hover:text-accent"
+              ]}
+              aria-label="Switch to English"
+              title="English"
+            >
+              EN
+            </a>
+            <span class="text-sm opacity-50">|</span>
+            <a
+              href={esUrl}
+              class:list={[
+                "focus-outline px-2 py-1 text-sm font-medium rounded transition-colors",
+                lang === "es" ? "text-accent" : "hover:text-accent"
+              ]}
+              aria-label="Cambiar a Español"
+              title="Español"
+            >
+              ES
+            </a>
           </li>
           {
             SITE.lightAndDarkMode && (
@@ -192,50 +231,10 @@ const isActive = (path: string) => {
     });
   }
 
-  function setupLanguageSelector() {
-    const langSelector = document.querySelector("#lang-selector") as HTMLSelectElement;
-    if (!langSelector) return;
-
-    langSelector.addEventListener("change", (e) => {
-      const newLang = (e.target as HTMLSelectElement).value;
-      const pathParts = window.location.pathname.split("/").filter(p => p.trim());
-      const currentLang = pathParts[0];
-
-      // Check if we're on a post page with translation data
-      const isPostPage = pathParts.some(part => part === "posts") ||
-                         window.location.pathname.match(/\/posts\/[^/]+\/[^/]+/);
-
-      if (isPostPage) {
-        // Check if translation URLs are available
-        const postTranslation = (window as any).__POST_TRANSLATION__;
-        if (postTranslation?.urls && postTranslation.urls[newLang]) {
-          // Navigate to the translated version of this post
-          window.location.pathname = postTranslation.urls[newLang];
-          return;
-        }
-
-        // Fallback: redirect to posts index if no translation available
-        window.location.pathname = `/${newLang}/posts`;
-        return;
-      }
-
-      // For non-post pages, swap the language segment
-      if (currentLang === "en" || currentLang === "es") {
-        pathParts[0] = newLang;
-        window.location.pathname = "/" + pathParts.join("/");
-      } else {
-        // If no language in path, add it
-        window.location.pathname = `/${newLang}${window.location.pathname}`;
-      }
-    });
-  }
-
   toggleNav();
-  setupLanguageSelector();
 
   // Runs on view transitions navigation
   document.addEventListener("astro:after-swap", () => {
     toggleNav();
-    setupLanguageSelector();
   });
 </script>
