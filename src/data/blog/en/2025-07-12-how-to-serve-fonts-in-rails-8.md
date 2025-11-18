@@ -5,6 +5,7 @@ slug: fonts-rails-8
 featured: false
 draft: true
 description: Adding fonts in Rails is easy
+lang: en
 ---
 
 - Add the font to the fonts folder in assets.

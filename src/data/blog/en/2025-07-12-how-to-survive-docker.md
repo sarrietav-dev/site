@@ -6,4 +6,5 @@ slug: surviving-docker
 featured: false
 draft: true
 description: The basics of Docker
+lang: en
 ---

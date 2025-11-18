@@ -15,6 +15,11 @@ export const SITE = {
   dir: "ltr", // "rtl" | "auto"
   lang: "en", // html lang code. Set this empty and default will be "en"
   timezone: "America/Bogota", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  locales: {
+    en: { label: "English", dir: "ltr" },
+    es: { label: "Español", dir: "ltr" },
+  },
+  defaultLocale: "en",
   editPost: {
     enabled: false,
     text: "Edit page",

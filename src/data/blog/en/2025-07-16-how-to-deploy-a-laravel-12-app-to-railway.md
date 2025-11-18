@@ -4,10 +4,11 @@ title: "Laravel 12 + Inertia on Railway: Step-by-Step Deployment Guide"
 slug: laravel-inertia-railway-guide
 featured: true
 draft: false
-ogImage: ../../../public/laravel-railway.png
+ogImage: https://sarrietav.dev/laravel-railway.png
 tags:
   - laravel
 description: Learn how to successfully deploy a Laravel 12 + Inertia.js app to Railway, including PostgreSQL setup, cron jobs, queue workers, and HTTPS. This guide fixes the common issues not covered in the official docs, with working scripts and pro tips.
+lang: en
 ---
 
 Today I had to deploy a basic Laravel 12 + Inertia app to [Railway](https://railway.app/), but if you follow the official Railway guide to the letter, you’re likely to run into errors (at least, I did). So I’m going to walk you through **how I actually got it working**.

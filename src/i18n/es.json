@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "posts": "Artículos",
+    "tags": "Etiquetas",
+    "about": "Acerca de",
+    "archives": "Archivos",
+    "search": "Búsqueda"
+  },
+  "common": {
+    "readMore": "Leer Más",
+    "tags": "Etiquetas",
+    "back": "Atrás",
+    "allPosts": "Todos los Artículos",
+    "allTags": "Todas las Etiquetas",
+    "recentPosts": "Artículos Recientes",
+    "viewAll": "Ver todos los artículos",
+    "noPostsFound": "No se encontraron artículos",
+    "searchPlaceholder": "Buscar artículos...",
+    "postsWithTag": "Artículos con la etiqueta",
+    "published": "Publicado",
+    "updated": "Actualizado",
+    "minutes": "min de lectura"
+  },
+  "archives": {
+    "title": "Archivos",
+    "description": "Todos los artículos que he publicado, organizados por fecha."
+  },
+  "tags": {
+    "title": "Etiquetas",
+    "description": "Todas las etiquetas utilizadas en los artículos."
+  },
+  "share": {
+    "title": "Compartir este artículo en:",
+    "whatsapp": "Compartir este artículo vía WhatsApp",
+    "facebook": "Compartir este artículo en Facebook",
+    "x": "Compartir este artículo en X",
+    "telegram": "Compartir este artículo vía Telegram",
+    "pinterest": "Compartir este artículo en Pinterest",
+    "linkedin": "Compartir este artículo en LinkedIn",
+    "mail": "Compartir este artículo vía email"
+  },
+  "post": {
+    "previousPost": "Artículo Anterior",
+    "nextPost": "Siguiente Artículo"
+  },
+  "footer": {
+    "copyright": "Copyright",
+    "allRightsReserved": "Todos los derechos reservados",
+    "onGitHub": "{name} en GitHub",
+    "onX": "{name} en X",
+    "onLinkedIn": "{name} en LinkedIn",
+    "sendEmail": "Enviar un email a {name}"
+  }
+}

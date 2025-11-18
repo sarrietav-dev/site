@@ -37,6 +37,13 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),
+      i18n: {
+        defaultLocale: "en",
+        locales: {
+          en: "en-US",
+          es: "es-ES",
+        },
+      },
     }),
     react(),
   ],
