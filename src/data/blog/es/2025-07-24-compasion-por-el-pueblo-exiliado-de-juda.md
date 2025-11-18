@@ -7,7 +7,7 @@ draft: true
 tags:
   - fe
 description: Descubre el profundo dolor y la resiliencia detrás del exilio babilónico a través de una lente compasiva. Esta reflexión explora la destrucción de Jerusalén, el trauma del desplazamiento y cómo aún podemos lamentar y aprender del sufrimiento de los exiliados judíos.
-ogImage: ../../../public/exiled-jews.png
+ogImage: /exiled-jews.png
 lang: es
 ---
 
@@ -104,12 +104,12 @@ Pero la devastación no se detuvo en el Templo.
 
 Jerusalén misma era vista como **la ciudad de Dios**, el lugar de Su Nombre (Salmo 48:1–3). Cada año, israelitas de cada tribu harían la peregrinación a sus puertas. Era una ciudad tejida en su adoración, memoria e identidad.
 
-![](../../../public/jerusalem.png)
+![](/jerusalem.png)
 
 > "Si me olvido de ti, oh Jerusalén, pierda mi diestra su destreza." — _Salmo 137:5_
 
 Ver cómo fue profanada — sus muros derribados, palacios quemados, calles manchadas de sangre — fue ver el **corazón de una nación expuesto**. No era solo su capital. Era su **faro de pertenencia**.
-![](../../../public/jerusalem-dead.png)
+![](/jerusalem-dead.png)
 
 ## La Caída de la Monarquía Davídica
 
@@ -135,7 +135,7 @@ Los eruditos e historiadores creen que los exiliados siguieron el **Creciente F�
 
 Qué inquietante que el mismo camino una vez recorrido en **fe y promesa** ahora fuera recorrido en **juicio y dolor**.
 
-![https://biblemapper.com/](../../../public/exile-to-babylon.jpg)
+![https://biblemapper.com/](/exile-to-babylon.jpg)
 _Esta imagen es de <https://biblemapper.com/>_
 
 Las familias fueron separadas. Los niños fueron asesinados. La tierra prometida a Abraham (Génesis 17:8), la ciudad donde David reinó (2 Samuel 5:7), el Templo donde la gloria de Dios una vez llenó el Lugar Santísimo (1 Reyes 8:10-11)—**todo desapareció**. El pueblo que una vez declaró, _"Dios está con nosotros"_ (Isaías 8:10), ahora se sentaba esclavizado y burlado en una tierra de dioses extraños y lenguas extrañas.
@@ -198,7 +198,7 @@ Estas no son prescripciones morales. Son **gritos de humanos heridos**—dolor c
 
 Una vez me encontré con una pintura de **Gebhard Fugel**, titulada _Junto a las Aguas de Babilonia_. Dio vida al salmo con asombrosa claridad.
 
-![](../../../public/waters-of-babylon.jpg)
+![](/waters-of-babylon.jpg)
 
 En ella, los exiliados se desploman junto a la orilla del río, abrumados. Algunos presionan sus rostros contra el suelo. Otros levantan manos temblorosas. Sus arpas—esos instrumentos sagrados—cuelgan olvidadas en los árboles, tal como dice el salmo.
 

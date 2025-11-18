@@ -7,7 +7,7 @@ draft: true
 tags:
   - faith
 description: Discover the deep sorrow and resilience behind the Babylonian exile through a compassionate lens. This reflective post explores the destruction of Jerusalem, the trauma of displacement, and how we can still mourn and learn from the suffering of the Jewish exiles today.
-ogImage: ../../../public/exiled-jews.png
+ogImage: /exiled-jews.png
 lang: en
 ---
 
@@ -104,12 +104,12 @@ But the devastation didn’t stop at the Temple.
 
 Jerusalem itself was seen as **the city of God**, the dwelling place of His Name (Psalm 48:1–3). Every year, Israelites from every tribe would make the pilgrimage to its gates. It was a city woven into their worship, memory, and identity.
 
-![](../../../public/jerusalem.png)
+![](/jerusalem.png)
 
 > “If I forget you, O Jerusalem, let my right hand forget its skill.” — _Psalm 137:5_
 
 To see it desecrated — its walls torn down, palaces burned, streets stained with blood — was to see a **nation’s heart laid bare**. It wasn’t just their capital. It was their **beacon of belonging**.
-![](../../../public/jerusalem-dead.png)
+![](/jerusalem-dead.png)
 
 ## The Fall of the Davidic Monarchy
 
@@ -135,7 +135,7 @@ Scholars and historians believe the exiles followed the **Fertile Crescent**, a 
 
 How haunting that the very path once walked in **faith and promise** was now walked in **judgment and sorrow**.
 
-![https://biblemapper.com/](../../../public/exile-to-babylon.jpg)
+![https://biblemapper.com/](/exile-to-babylon.jpg)
 _This image is by the <https://biblemapper.com/>_
 
 Families were torn apart. Children were killed. The land promised to Abraham (Genesis 17:8), the city where David reigned (2 Samuel 5:7), the Temple where God's glory once filled the Holy of Holies (1 Kings 8:10-11)—**all gone**. The people who once declared, _“God is with us”_ (Isaiah 8:10), now sat enslaved and mocked in a land of strange gods and strange tongues.
@@ -198,7 +198,7 @@ These are not moral prescriptions. They are **cries of wounded humans**—raw gr
 
 I once came across a painting by **Gebhard Fugel**, titled _By the Waters of Babylon_. It brought the psalm to life in stunning clarity.
 
-![](../../../public/waters-of-babylon.jpg)
+![](/waters-of-babylon.jpg)
 
 In it, the exiles slump by the riverbank, overwhelmed. Some press their faces to the ground. Others raise trembling hands. Their harps—those sacred instruments—hang forgotten in the trees, just as the psalm said.
 

@@ -6,7 +6,7 @@ description: Una caminata tranquila sin distracciones revela un mundo oculto—u
 tags:
   - mindfulness
   - reflexión
-ogImage: ../../../public/noise-noticing.png
+ogImage: /noise-noticing.png
 lang: es
 ---
 Después de ir al gimnasio, quería sacar a pasear a mi perro. Usualmente, llevo mis auriculares y escucho música, podcasts o audiolibros. Pero últimamente, he estado tratando de crear momentos en los que dejo de consumir contenido y, en su lugar, reflexiono sobre lo que ya he asimilado. Así que decidí dejar mis auriculares en casa.
