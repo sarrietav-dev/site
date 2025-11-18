@@ -73,11 +73,18 @@ const layoutProps = {
 
 /* ========== Prev/Next Posts ========== */
 
-const allPosts = posts.map(({ data: { title }, id, filePath }) => ({
-  id,
-  title,
-  filePath,
-}));
+const allPosts = posts.map(({ data: { title, lang: postLang }, id, filePath }) => {
+  let slug = getPath(id, filePath, false);
+  // Remove language prefix from slug
+  slug = slug.replace(`/${postLang}/`, '/').replace(`${postLang}/`, '').replace(/^\/+/, '');
+  const url = `/${postLang}/posts/${slug}`;
+
+  return {
+    id,
+    title,
+    url,
+  };
+});
 
 const currentPostIndex = allPosts.findIndex(a => a.id === post.id);
 
@@ -136,7 +143,7 @@ const nextPost =
       {
         prevPost && (
           <a
-            href={getPath(prevPost.id, prevPost.filePath)}
+            href={prevPost.url}
             class="flex w-full gap-1 hover:opacity-75"
           >
             <IconChevronLeft class="inline-block flex-none rtl:rotate-180" />
@@ -150,7 +157,7 @@ const nextPost =
       {
         nextPost && (
           <a
-            href={getPath(nextPost.id, nextPost.filePath)}
+            href={nextPost.url}
             class="flex w-full justify-end gap-1 text-end hover:opacity-75 sm:col-start-2"
           >
             <div>
