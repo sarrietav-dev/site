@@ -7,7 +7,7 @@ draft: true
 tags:
   - faith
 description: Discover the deep sorrow and resilience behind the Babylonian exile through a compassionate lens. This reflective post explores the destruction of Jerusalem, the trauma of displacement, and how we can still mourn and learn from the suffering of the Jewish exiles today.
-ogImage: /exiled-jews.png
+ogImage: https://sarrietav.dev/exiled-jews.png
 lang: en
 ---
 

@@ -7,7 +7,7 @@ draft: true
 tags:
   - fe
 description: Descubre el profundo dolor y la resiliencia detrás del exilio babilónico a través de una lente compasiva. Esta reflexión explora la destrucción de Jerusalén, el trauma del desplazamiento y cómo aún podemos lamentar y aprender del sufrimiento de los exiliados judíos.
-ogImage: /exiled-jews.png
+ogImage: https://sarrietav.dev/exiled-jews.png
 lang: es
 ---
 
