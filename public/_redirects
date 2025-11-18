@@ -1,3 +1,4 @@
+/                  /en/                                              302
 /main-notes/*      https://brain.sarrietav.dev/main-notes/:splat     301
 /source-material/* https://brain.sarrietav.dev/source-material/:splat 301
 /*                 /:splat                                           200
