@@ -40,4 +40,4 @@ const posts = allPosts.filter(p => p.data.lang === lang);
 const sortedPosts = getSortedPosts(posts);
 ---
 
-<PostDetails post={post} posts={sortedPosts} />
+<PostDetails post={post} posts={sortedPosts} allPosts={allPosts} />
