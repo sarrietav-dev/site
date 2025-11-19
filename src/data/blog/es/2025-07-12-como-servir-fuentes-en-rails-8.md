@@ -6,6 +6,7 @@ featured: false
 draft: true
 description: Agregar fuentes en Rails es fácil
 lang: es
+translationKey: rails-fonts
 ---
 
 - Agrega la fuente a la carpeta fonts en assets.

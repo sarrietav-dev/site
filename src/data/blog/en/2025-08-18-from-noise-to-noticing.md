@@ -8,6 +8,7 @@ tags:
   - reflection
 ogImage: https://sarrietav.dev/noise-noticing.png
 lang: en
+translationKey: noise-noticing
 ---
 After going to the gym, I wanted to take my dog for a walk. Usually, I bring my headphones and listen to music, podcasts, or audiobooks. But lately, I’ve been trying to create moments where I stop consuming content and instead reflect on what I’ve already taken in. So, I decided to leave my headphones at home.
 

@@ -9,6 +9,7 @@ tags:
 description: Descubre el profundo dolor y la resiliencia detrás del exilio babilónico a través de una lente compasiva. Esta reflexión explora la destrucción de Jerusalén, el trauma del desplazamiento y cómo aún podemos lamentar y aprender del sufrimiento de los exiliados judíos.
 ogImage: https://sarrietav.dev/exiled-jews.png
 lang: es
+translationKey: judah-compassion
 ---
 
 Actualmente estoy haciendo un plan de lectura bíblica de un año, y acabo de llegar al libro de _Lamentaciones_. Desde el primer versículo, me impactó su crudo dolor:

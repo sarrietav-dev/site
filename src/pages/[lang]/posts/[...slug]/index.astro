@@ -18,7 +18,8 @@ export async function getStaticPaths() {
     const postResults = localePosts.map(post => {
       let slug = getPath(post.id, post.filePath, false);
       // Remove language prefix from slug since we're already in [lang] route
-      slug = slug.replace(`/${locale}/`, '/').replace(`${locale}/`, '');
+      // Handle both /lang/ and lang/ patterns, then remove leading slash
+      slug = slug.replace(`/${locale}/`, '/').replace(`${locale}/`, '').replace(/^\/+/, '');
 
       return {
         params: { lang: locale, slug },
@@ -39,4 +40,4 @@ const posts = allPosts.filter(p => p.data.lang === lang);
 const sortedPosts = getSortedPosts(posts);
 ---
 
-<PostDetails post={post} posts={sortedPosts} />
+<PostDetails post={post} posts={sortedPosts} allPosts={allPosts} />

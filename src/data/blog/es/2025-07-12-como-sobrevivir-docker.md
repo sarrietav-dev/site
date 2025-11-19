@@ -7,4 +7,5 @@ featured: false
 draft: true
 description: Los fundamentos de Docker
 lang: es
+translationKey: docker-survival
 ---

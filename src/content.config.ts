@@ -21,6 +21,7 @@ const blog = defineCollection({
       hideEditPost: z.boolean().optional(),
       timezone: z.string().optional(),
       lang: z.enum(["en", "es"]).default("en"),
+      translationKey: z.string().optional(),
     }),
 });
 

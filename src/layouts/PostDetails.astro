@@ -21,9 +21,10 @@ import { t } from "@/i18n";
 export interface Props {
   post: CollectionEntry<"blog">;
   posts: CollectionEntry<"blog">[];
+  allPosts: CollectionEntry<"blog">[];
 }
 
-const { post, posts } = Astro.props;
+const { post, posts, allPosts } = Astro.props;
 const lang = post.data.lang as Locale;
 
 const {
@@ -37,6 +38,7 @@ const {
   timezone,
   tags,
   hideEditPost,
+  translationKey,
 } = post.data;
 
 const { Content } = await render(post);
@@ -73,21 +75,42 @@ const layoutProps = {
 
 /* ========== Prev/Next Posts ========== */
 
-const allPosts = posts.map(({ data: { title }, id, filePath }) => ({
-  id,
-  title,
-  filePath,
-}));
+const postsWithUrls = posts.map(({ data: { title, lang: postLang }, id, filePath }) => {
+  let slug = getPath(id, filePath, false);
+  // Remove language prefix from slug
+  slug = slug.replace(`/${postLang}/`, '/').replace(`${postLang}/`, '').replace(/^\/+/, '');
+  const url = `/${postLang}/posts/${slug}`;
 
-const currentPostIndex = allPosts.findIndex(a => a.id === post.id);
+  return {
+    id,
+    title,
+    url,
+  };
+});
 
-const prevPost = currentPostIndex !== 0 ? allPosts[currentPostIndex - 1] : null;
+const currentPostIndex = postsWithUrls.findIndex(a => a.id === post.id);
+
+const prevPost = currentPostIndex !== 0 ? postsWithUrls[currentPostIndex - 1] : null;
 const nextPost =
-  currentPostIndex !== allPosts.length ? allPosts[currentPostIndex + 1] : null;
+  currentPostIndex !== postsWithUrls.length ? postsWithUrls[currentPostIndex + 1] : null;
+
+/* ========== Translation URLs ========== */
+
+// Create a mapping of language -> URL for all translations of this post
+const translationUrls: Record<string, string> = {};
+if (translationKey) {
+  const translatedPosts = allPosts.filter(p => p.data.translationKey === translationKey);
+  translatedPosts.forEach(p => {
+    const postLang = p.data.lang;
+    let slug = getPath(p.id, p.filePath, false);
+    slug = slug.replace(`/${postLang}/`, '/').replace(`${postLang}/`, '').replace(/^\/+/, '');
+    translationUrls[postLang] = `/${postLang}/posts/${slug}`;
+  });
+}
 ---
 
 <Layout {...layoutProps}>
-  <Header />
+  <Header translationUrls={translationUrls} />
   <BackButton />
   <main
     id="main-content"
@@ -136,7 +159,7 @@ const nextPost =
       {
         prevPost && (
           <a
-            href={getPath(prevPost.id, prevPost.filePath)}
+            href={prevPost.url}
             class="flex w-full gap-1 hover:opacity-75"
           >
             <IconChevronLeft class="inline-block flex-none rtl:rotate-180" />
@@ -150,7 +173,7 @@ const nextPost =
       {
         nextPost && (
           <a
-            href={getPath(nextPost.id, nextPost.filePath)}
+            href={nextPost.url}
             class="flex w-full justify-end gap-1 text-end hover:opacity-75 sm:col-start-2"
           >
             <div>

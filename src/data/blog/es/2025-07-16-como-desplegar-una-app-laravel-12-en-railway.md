@@ -9,6 +9,7 @@ tags:
   - laravel
 description: Aprende cómo desplegar exitosamente una aplicación Laravel 12 + Inertia.js en Railway, incluyendo configuración de PostgreSQL, cron jobs, queue workers y HTTPS. Esta guía corrige los problemas comunes que no cubren los documentos oficiales, con scripts funcionales y consejos profesionales.
 lang: es
+translationKey: laravel-railway
 ---
 
 Hoy tuve que desplegar una aplicación básica de Laravel 12 + Inertia en [Railway](https://railway.app/), pero si sigues la guía oficial de Railway al pie de la letra, es probable que te encuentres con errores (al menos, yo lo hice). Así que voy a mostrarte **cómo lo hice funcionar realmente**.

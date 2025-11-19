@@ -10,7 +10,14 @@ export interface Props extends CollectionEntry<"blog"> {
 
 const { variant = "h2", data, id, filePath } = Astro.props;
 
-const { title, description, pubDatetime, modDatetime, timezone } = data;
+const { title, description, pubDatetime, modDatetime, timezone, lang } = data;
+
+// Get the post slug without language prefix
+let slug = getPath(id, filePath, false);
+slug = slug.replace(`/${lang}/`, '/').replace(`${lang}/`, '').replace(/^\/+/, '');
+
+// Build correct URL: /lang/posts/slug
+const postUrl = `/${lang}/posts/${slug}`;
 
 const headerProps = {
   style: { viewTransitionName: slugifyStr(title) },
@@ -20,7 +27,7 @@ const headerProps = {
 
 <li class="my-6">
   <a
-    href={getPath(id, filePath)}
+    href={postUrl}
     class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
   >
     {
