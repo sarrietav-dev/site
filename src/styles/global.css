@@ -86,6 +86,7 @@ p {
 a {
   color: var(--color-text);
   text-decoration: underline;
+  text-decoration-style: wavy;
   transition: opacity 0.2s ease;
 }
 
