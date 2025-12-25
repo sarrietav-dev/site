@@ -1,102 +1,100 @@
-@import "tailwindcss";
-@import "./fonts.css";
-@import "./typography.css";
-/* @import "./code-numbers.css"; */
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+/* CSS Custom Properties */
+:root {
+  /* Light mode colors (default) */
+  --color-bg: #f4f1ea;
+  --color-text: #1a1a1a;
+  --color-text-muted: #6b6b6b;
+  --color-label: #999999;
 
-:root,
-html[data-theme="light"] {
-  --background: #e8f0e8;
-  --foreground: #2c3e3b;
-  --accent: #4b6d63;
-  --muted: #cfd8d3;
-  --border: #2c3e3b;
-  --color-fill: #e8f0e8;
-  --color-text-base: #2c3e3b;
-  --color-accent: #4b6d63;
-  --color-card: #cfd8d3;
-  --color-card-muted: #8a9b95;
-  --color-border: #2c3e3b;
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
 }
-html[data-theme="dark"] {
-  --background: #1a2420;
-  --foreground: #e4ece8;
-  --accent: #5a7b6f;
-  --muted: #3c4d46;
-  --border: #ccd4ce;
-  --color-fill: #1a2420;
-  --color-text-base: #e4ece8;
-  --color-accent: #5a7b6f;
-  --color-card: #3c4d46;
-  --color-card-muted: #697c74;
-  --color-border: #ccd4ce;
-}
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-accent: var(--accent);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
-  --font-sans:
-    "Merriweather", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
-  --font-serif:
-    "Bricolage Grotesque", ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace;
-  --font-mono:
-    "Cascadia Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
-}
-@layer base {
-  * {
-    @apply border-border outline-accent/75;
-    scrollbar-width: auto;
-    scrollbar-color: var(--color-muted) transparent;
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1a1a1a;
+    --color-text: #e8e6e3;
+    --color-text-muted: #888888;
+    --color-label: #666666;
   }
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem 2rem;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
   html {
-    @apply overflow-y-scroll scroll-smooth;
+    scroll-behavior: auto;
   }
-  body {
-    @apply flex min-h-svh flex-col bg-background font-serif text-foreground selection:bg-accent/75 selection:text-background;
-    background-color: var(--background);
-  }
-  /* Headings use Josefin Sans */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-sans;
-  }
-  a,
-  button {
-    @apply outline-offset-1 outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-dashed;
-  }
-  button:not(:disabled),
-  [role="button"]:not(:disabled) {
-    cursor: pointer;
-  }
-  section,
-  footer {
-    @apply mx-auto max-w-app px-4;
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-@utility max-w-app {
-  @apply max-w-4xl;
+/* Typography */
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
 }
 
-.active-nav {
-  @apply underline decoration-wavy decoration-2 underline-offset-4;
+h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  line-height: 1.5;
 }
 
-/* Source: https://piccalil.li/blog/a-more-modern-css-reset/ */
-/* Anything that has been anchored to should have extra scroll margin */
-:target {
-  scroll-margin-block: 1rem;
+p {
+  margin-bottom: 0;
+  line-height: 1.6;
 }
-a.esv-crossref-link {
-  color: var(--foreground) !important;
+
+/* Links */
+a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.6;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
 }

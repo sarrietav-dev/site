@@ -1,32 +1,27 @@
 ---
-import { DEFAULT_LOCALE } from "@/i18n/locales";
-
-const redirectUrl = `/${DEFAULT_LOCALE}/`;
+import '../styles/global.css';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Blogs from '../components/Blogs.astro';
+import Contact from '../components/Contact.astro';
 ---
 
-<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content={`0; url=${redirectUrl}`}>
-  <script is:inline define:vars={{ redirectUrl }}>
-    window.location.replace(redirectUrl);
-  </script>
-  <title>Redirecting...</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      font-family: system-ui, -apple-system, sans-serif;
-    }
-  </style>
-</head>
-<body>
-  <p>Redirecting...</p>
-</body>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Sebastian Arrieta - Software Engineer at Disruptica. Personal portfolio and blog." />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+		<title>Sebastian Arrieta - Software Engineer</title>
+	</head>
+	<body>
+		<Hero />
+		<About />
+		<Blogs />
+		<Contact />
+	</body>
 </html>
