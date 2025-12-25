@@ -1,10 +1,31 @@
 <div class="section">
   <div class="label">/blogs</div>
   <div class="content">
-    <p>
-      I write about software engineering, web development, and technology.
-      <a href="https://placeholder.substack.com" target="_blank" rel="noopener noreferrer">Read on Substack</a>
-    </p>
+    <div class="blog-cards">
+      <a href="https://sarrietav.substack.com/" target="_blank" rel="noopener noreferrer" class="blog-card">
+        <img src="/currents-keystones-logo.png" alt="Currents & Keystones" class="blog-logo" />
+        <div class="blog-info">
+          <h3 class="blog-title">Currents & Keystones</h3>
+          <p class="blog-description">Thoughts and learning in general</p>
+        </div>
+      </a>
+
+      <a href="https://fullstackjournal.substack.com/" target="_blank" rel="noopener noreferrer" class="blog-card">
+        <img src="/fullstack-journal-logo.png" alt="The Full Stack Journal" class="blog-logo" />
+        <div class="blog-info">
+          <h3 class="blog-title">The Full Stack Journal</h3>
+          <p class="blog-description">Everything related to software engineering</p>
+        </div>
+      </a>
+
+      <a href="https://tgcnotes.substack.com/" target="_blank" rel="noopener noreferrer" class="blog-card">
+        <img src="/growing-christian-logo.png" alt="The Growing Christian" class="blog-logo" />
+        <div class="blog-info">
+          <h3 class="blog-title">The Growing Christian</h3>
+          <p class="blog-description">Faith notes and reflections</p>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 
@@ -19,7 +40,52 @@
     margin-bottom: 0.75rem;
   }
 
-  .content p {
+  .blog-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .blog-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--color-label);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: border-color 0.2s ease, opacity 0.2s ease;
+  }
+
+  .blog-card:hover {
+    border-color: var(--color-text);
+    opacity: 1;
+  }
+
+  .blog-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+
+  .blog-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .blog-title {
+    font-size: 1rem;
+    font-weight: 500;
     color: var(--color-text);
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+  }
+
+  .blog-description {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
   }
 </style>
