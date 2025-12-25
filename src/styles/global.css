@@ -10,9 +10,9 @@
 /* CSS Custom Properties */
 :root {
   /* Light mode colors (default) */
-  --color-bg: #ffffff;
-  --color-text: #000000;
-  --color-text-muted: #888888;
+  --color-bg: #f4f1ea;
+  --color-text: #1a1a1a;
+  --color-text-muted: #6b6b6b;
   --color-label: #999999;
 
   /* Typography */
@@ -23,8 +23,8 @@
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #000000;
-    --color-text: #ffffff;
+    --color-bg: #1a1a1a;
+    --color-text: #e8e6e3;
     --color-text-muted: #888888;
     --color-label: #666666;
   }
