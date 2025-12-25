@@ -1,7 +1,20 @@
+---
+import { Image } from 'astro:assets';
+import profilePic from '../../public/me.jpg';
+---
+
 <div class="hero">
-  <div class="profile-image">SA</div>
+  <div class="profile-wrapper">
+    <Image
+      src={profilePic}
+      alt="Sebastian Arrieta"
+      width={80}
+      height={80}
+      class="profile-image"
+    />
+  </div>
   <h1>Sebastian Arrieta</h1>
-  <h2>Software Engineer @ Disruptica</h2>
+  <h2>Software Engineer @ <a href="https://disruptica.com" target="_blank" rel="noopener noreferrer">Disruptica</a></h2>
 </div>
 
 <style>
@@ -9,19 +22,20 @@
     margin-bottom: 3rem;
   }
 
-  .profile-image {
+  .profile-wrapper {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: var(--color-text);
-    color: var(--color-bg);
-    font-size: 1.5rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
     margin-bottom: 1.5rem;
   }
+
+  .profile-image {
+    object-fit: cover;
+    object-position: center;
+    transition: all 0.5s ease;
+  }
+
 
   h1 {
     margin-bottom: 0.5rem;
