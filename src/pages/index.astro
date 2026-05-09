@@ -23,5 +23,25 @@ import Contact from '../components/Contact.astro';
 		<About />
 		<Blogs />
 		<Contact />
+		<div class="now-link">
+			<a href="/now">/now</a>
+		</div>
 	</body>
 </html>
+
+<style>
+  .now-link {
+    margin-bottom: 2rem;
+    font-size: 0.875rem;
+  }
+
+  .now-link a {
+    color: var(--color-label);
+    text-decoration: none;
+  }
+
+  .now-link a:hover {
+    color: var(--color-text);
+    opacity: 1;
+  }
+</style>
