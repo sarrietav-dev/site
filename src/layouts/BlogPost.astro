@@ -89,4 +89,29 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
   }
+
+  article :global(ul),
+  article :global(ol) {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  article :global(ul) {
+    list-style-type: disc;
+  }
+
+  article :global(ol) {
+    list-style-type: decimal;
+  }
+
+  article :global(li) {
+    margin-bottom: 0.25rem;
+    line-height: 1.6;
+  }
+
+  article :global(li > ul),
+  article :global(li > ol) {
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+  }
 </style>
