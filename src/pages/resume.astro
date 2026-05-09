@@ -1,0 +1,329 @@
+---
+import '../styles/global.css';
+import Experience from '../components/Experience.astro';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Sebastian Arrieta - Resume. Full-stack software engineer with expertise in TypeScript, React, Node.js, and cloud infrastructure." />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+		<title>Sebastian Arrieta - Resume</title>
+	</head>
+	<body>
+		<nav>
+			<a href="/">home</a>
+			<a href="/now">now</a>
+			<a href="/blog">blog</a>
+			<a href="/resume">resume</a>
+		</nav>
+		<main>
+			<div class="hero">
+				<h1>Sebastian Arrieta Villarreal</h1>
+				<h2>Full-Stack Software Engineer</h2>
+			</div>
+
+			<div class="section">
+				<div class="label">/about</div>
+				<div class="content">
+					<p>
+						I'm a full-stack software engineer passionate about building elegant, scalable solutions to complex problems.
+						I specialize in modern web technologies, domain-driven architecture, and shipping products that matter.
+						With expertise spanning backend systems, frontend experiences, and cloud infrastructure, I help teams move fast
+						without sacrificing code quality.
+					</p>
+					<p>
+						Recently, I've led engineering at stealth startups building NFC authentication platforms and fractional property
+						investment systems. I'm particularly interested in clean code, type-safe systems, real-time collaboration,
+						and creating great developer experiences. Relevant coursework includes Object-Oriented Programming, Web Application
+						Development, Database Design, Cybersecurity, Software Architecture, and Algorithms.
+					</p>
+				</div>
+			</div>
+
+			<Experience />
+
+			<div class="section">
+				<div class="label">/side projects</div>
+				<div class="content">
+					<div class="projects-list">
+						<div class="project">
+							<div class="project-header">
+								<h3><a href="https://monitor.garden.io" target="_blank" rel="noopener noreferrer">Monitor</a></h3>
+								<span class="date">Dec 2025 — Present</span>
+							</div>
+							<p class="project-desc">
+								A full-stack time tracking application built with Laravel 13 and React 19. Manages contractor timesheets,
+								statement of work budgets, time logs, extra time tracking, and feedback workflows. Features include calendar-based
+								time entry, real-time budget tracking, and integrated code feedback via Ladybug.
+							</p>
+							<div class="project-stack">
+								Laravel · React · TypeScript · PostgreSQL · Inertia.js · Tailwind CSS
+							</div>
+						</div>
+
+						<div class="project">
+							<div class="project-header">
+								<h3><a href="https://github.com/sebas-arrieta/ladybug" target="_blank" rel="noopener noreferrer">Ladybug</a></h3>
+								<span class="date">2025</span>
+							</div>
+							<p class="project-desc">
+								An AI-powered code review feedback tool that integrates with your development workflow. Analyzes code changes
+								and provides actionable feedback using Claude. Built as a distributed system with a web dashboard (Next.js),
+								worker process for code analysis, and plugin integrations.
+							</p>
+							<div class="project-stack">
+								Next.js · TypeScript · Prisma · PostgreSQL · better-auth · Bun · Claude API
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="section">
+				<div class="label">/technical skills</div>
+				<div class="content">
+					<div class="skills-grid">
+						<div class="skill-group">
+							<h4>Languages</h4>
+							<p>TypeScript, JavaScript, PHP, Python, Go, SQL</p>
+						</div>
+						<div class="skill-group">
+							<h4>Frontend</h4>
+							<p>React, Next.js, Angular, Astro, React Native, TanStack Query</p>
+						</div>
+						<div class="skill-group">
+							<h4>Backend</h4>
+							<p>NestJS, Laravel, Node.js, Express, ASP.NET</p>
+						</div>
+						<div class="skill-group">
+							<h4>Databases</h4>
+							<p>PostgreSQL, MySQL, MongoDB, Redis, Prisma, Drizzle ORM</p>
+						</div>
+						<div class="skill-group">
+							<h4>Cloud & Infrastructure</h4>
+							<p>GCP, AWS, Docker, Terraform, GitHub Actions, Azure Pipelines, Firebase</p>
+						</div>
+						<div class="skill-group">
+							<h4>Methodologies</h4>
+							<p>Domain-Driven Design, Test-Driven Development, RESTful APIs, Clean Architecture</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="section">
+				<div class="label">/education</div>
+				<div class="content">
+					<div class="education-item">
+						<div class="ed-header">
+							<h3>University of Cartagena</h3>
+							<span class="degree">Bachelor of Computer Engineering</span>
+						</div>
+						<p class="ed-meta">April 2019 — December 2024 · GPA: 4.5/5</p>
+						<p class="ed-courses">
+							Relevant coursework: Object-Oriented Programming, Web Application Development, Database Design,
+							Cybersecurity, Software Architecture Design, Algorithms and Data Structures, Artificial Intelligence
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="section">
+				<div class="label">/contact</div>
+				<div class="content">
+					<p>
+						<a href="mailto:sarrietav.dev@gmail.com">Email me</a> at sarrietav.dev@gmail.com, connect on
+						<a href="https://www.linkedin.com/in/sebas-arrieta/" target="_blank" rel="noopener noreferrer">LinkedIn</a>,
+						or find my open source work on <a href="https://github.com/sebas-arrieta" target="_blank" rel="noopener noreferrer">GitHub</a>.
+					</p>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<p>© {new Date().getFullYear()} Sebastian Arrieta</p>
+		</footer>
+	</body>
+</html>
+
+<style>
+	nav {
+		display: flex;
+		justify-content: flex-end;
+		gap: 1.25rem;
+		margin-bottom: 2.5rem;
+		font-size: 0.875rem;
+	}
+
+	nav a {
+		color: var(--color-label);
+		text-decoration: none;
+	}
+
+	nav a:hover {
+		color: var(--color-text);
+		opacity: 1;
+	}
+
+	.hero {
+		margin-bottom: 1.5rem;
+	}
+
+	h1 {
+		margin-bottom: 0.5rem;
+	}
+
+	.section {
+		margin-bottom: 1.5rem;
+	}
+
+	.label {
+		color: var(--color-label);
+		font-size: 0.875rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.content {
+		color: var(--color-text);
+	}
+
+	.content p {
+		margin-bottom: 1rem;
+		line-height: 1.6;
+	}
+
+	.content p:last-child {
+		margin-bottom: 0;
+	}
+
+	.projects-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.project {
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.project:last-child {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+
+	.project-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.project-header h3 {
+		font-size: 1rem;
+		font-weight: 500;
+		margin: 0;
+		color: var(--color-text);
+	}
+
+	.project-header a {
+		color: var(--color-text);
+		text-decoration: underline;
+		text-decoration-style: wavy;
+	}
+
+	.project-header a:hover {
+		opacity: 0.6;
+	}
+
+	.date {
+		font-size: 0.8rem;
+		color: var(--color-label);
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+
+	.project-desc {
+		font-size: 0.9rem;
+		color: var(--color-text-muted);
+		margin-bottom: 0.5rem;
+		line-height: 1.5;
+	}
+
+	.project-stack {
+		font-size: 0.8rem;
+		color: var(--color-label);
+		font-weight: 500;
+	}
+
+	.skills-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		gap: 1rem;
+	}
+
+	.skill-group h4 {
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text);
+		margin-bottom: 0.25rem;
+	}
+
+	.skill-group p {
+		font-size: 0.85rem;
+		color: var(--color-text-muted);
+		line-height: 1.4;
+	}
+
+	.education-item {
+		padding-bottom: 1rem;
+	}
+
+	.ed-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1rem;
+		margin-bottom: 0.25rem;
+	}
+
+	.ed-header h3 {
+		font-size: 1rem;
+		font-weight: 500;
+		margin: 0;
+		color: var(--color-text);
+	}
+
+	.degree {
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+
+	.ed-meta {
+		font-size: 0.8rem;
+		color: var(--color-label);
+		margin-bottom: 0.5rem;
+	}
+
+	.ed-courses {
+		font-size: 0.85rem;
+		color: var(--color-text-muted);
+		line-height: 1.5;
+	}
+
+	footer {
+		margin-top: 3rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--color-label);
+		font-size: 0.8rem;
+		color: var(--color-label);
+	}
+</style>

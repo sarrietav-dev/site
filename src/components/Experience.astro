@@ -1,0 +1,191 @@
+---
+---
+
+<div class="section">
+  <div class="label">/experience</div>
+  <div class="content">
+    <div class="experiences">
+      <div class="experience">
+        <div class="experience-header">
+          <h3>Software Developer</h3>
+          <span class="company">Disruptica</span>
+        </div>
+        <div class="meta">
+          <time>May 2025 — Present</time>
+        </div>
+        <ul class="highlights">
+          <li>Led full-stack development of a helicopter booking platform, designing backend API, web admin dashboard, and React Native mobile apps across three repositories</li>
+          <li>Implemented payment processing with Authorize.Net including tokenization and secure mobile payment flows for increased booking conversion</li>
+          <li>Built fractional real estate investment platform MVP using Laravel 12, Inertia.js, and React 19, automating deal management and ownership workflows</li>
+          <li>Designed comprehensive deal wizard managing invitations, document signing, KYC verification, and payment collection</li>
+          <li>Led a team of 3 developers building a stealth-stage NFC product authentication platform using TypeScript monorepo architecture</li>
+          <li>Architected domain-driven design system with 1,450+ API files and 640+ frontend components</li>
+          <li>Led Prisma-to-Drizzle ORM migration improving type safety and runtime performance</li>
+          <li>Engineered Shopify integration with real-time order sync and storefront API integration</li>
+          <li>Designed production GCP infrastructure using Terraform IaC with Cloud Run, Cloud SQL, and Memorystore Redis</li>
+        </ul>
+        <div class="tech-stack">
+          NestJS · Next.js · React · React Native · Laravel · TypeScript · Drizzle ORM · PostgreSQL · Redis · GCP · Terraform · Shopify API · Authorize.Net
+        </div>
+      </div>
+
+      <div class="experience">
+        <div class="experience-header">
+          <h3>Software Engineer Intern</h3>
+          <span class="company">PRAGMA</span>
+        </div>
+        <div class="meta">
+          <time>Feb 2024 — Aug 2024</time>
+          <span class="duration">7 mos</span>
+        </div>
+        <ul class="highlights">
+          <li>Reduced API response times by 98% (10s → 200ms) through performance optimization and caching improvements</li>
+          <li>Improved build times by 95% (10min → 30s), dramatically accelerating development cycles</li>
+          <li>Developed and maintained features for a platform serving 1,000+ monthly active users</li>
+          <li>Migrated serverless functions from AWS Lambda to AWS SAM, streamlining deployment via Azure Pipelines</li>
+          <li>Designed scalable notification delivery workflow using AWS Lambda, API Gateway, SNS, and Firebase Cloud Messaging</li>
+        </ul>
+        <div class="tech-stack">
+          React · AWS Lambda · AWS SAM · Azure Pipelines · Firebase · API Gateway · SNS
+        </div>
+      </div>
+
+      <div class="experience">
+        <div class="experience-header">
+          <h3>Software Engineer Intern</h3>
+          <span class="company">Universidad de Cartagena</span>
+        </div>
+        <div class="meta">
+          <time>Feb 2024 — Aug 2024</time>
+          <span class="duration">7 mos</span>
+        </div>
+        <ul class="highlights">
+          <li>Developed web-based booking system improving workflow efficiency for the university's planning department</li>
+        </ul>
+        <div class="tech-stack">
+          Laravel · MySQL
+        </div>
+      </div>
+
+      <div class="experience">
+        <div class="experience-header">
+          <h3>Independent Contractor</h3>
+          <span class="company">Freelance</span>
+        </div>
+        <div class="meta">
+          <time>Aug 2024 — Present</time>
+        </div>
+        <ul class="highlights">
+          <li>Built waste separation app for Colombian Ministry of Environment enabling citizens to categorize and manage recyclable materials</li>
+          <li>Developed school food tracking system for Colombia's PAE program monitoring meal distribution to low-income students</li>
+          <li>Created cadastral property management application for San Pablo enabling government documentation and valuations</li>
+          <li>Built React-based property registry system (Catastro) for municipalities with property search and government workflows</li>
+          <li>Developed Angular-based school food program manager (PaeGOB) with attendance tracking and PDF reporting</li>
+        </ul>
+        <div class="tech-stack">
+          React · Angular · TypeScript · Flutter · Firebase · Docker · Azure Pipelines
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section {
+    margin-bottom: 1.5rem;
+  }
+
+  .label {
+    color: var(--color-label);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .content {
+    font-size: 0.95rem;
+  }
+
+  .experiences {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .experience {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .experience:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+    color: var(--color-text);
+  }
+
+  .company {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .meta {
+    font-size: 0.8rem;
+    color: var(--color-label);
+    margin-bottom: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .duration {
+    color: var(--color-label);
+  }
+
+  .intro {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .highlights {
+    font-size: 0.9rem;
+    list-style: none;
+    margin: 0.5rem 0;
+    padding: 0;
+    color: var(--color-text-muted);
+  }
+
+  .highlights li {
+    margin-bottom: 0.35rem;
+    line-height: 1.5;
+  }
+
+  .highlights li::before {
+    content: "◆ ";
+    color: var(--color-label);
+    margin-right: 0.5rem;
+    font-size: 0.6rem;
+  }
+
+  .tech-stack {
+    font-size: 0.8rem;
+    color: var(--color-label);
+    margin-top: 0.5rem;
+    font-weight: 500;
+  }
+</style>
