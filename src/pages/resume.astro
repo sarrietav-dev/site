@@ -49,6 +49,24 @@ import Experience from '../components/Experience.astro';
 			<Experience />
 
 			<div class="section">
+				<div class="label">/speaking</div>
+				<div class="content">
+					<div class="talks-list">
+						<div class="talk">
+							<div class="talk-header">
+								<h3><a href="https://youtu.be/opcSRzr2JkA" target="_blank" rel="noopener noreferrer">Building Digital Products at Lightspeed: How AI Agents Transformed Our Compliance Implementation</a></h3>
+								<span class="talk-date">2025</span>
+							</div>
+							<p class="talk-desc">
+								Talk about leveraging AI agents to accelerate digital product development and streamline compliance workflows.
+								Discusses practical approaches to integrating AI agents into product architecture and achieving rapid implementation timelines.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="section">
 				<div class="label">/technical skills</div>
 				<div class="content">
 					<div class="skills-grid">
@@ -164,7 +182,62 @@ import Experience from '../components/Experience.astro';
 		margin-bottom: 0;
 	}
 
-.skills-grid {
+	.talks-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.talk {
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.talk:last-child {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+
+	.talk-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.talk-header h3 {
+		font-size: 1rem;
+		font-weight: 500;
+		margin: 0;
+		color: var(--color-text);
+	}
+
+	.talk-header a {
+		color: var(--color-text);
+		text-decoration: underline;
+		text-decoration-style: wavy;
+	}
+
+	.talk-header a:hover {
+		opacity: 0.6;
+	}
+
+	.talk-date {
+		font-size: 0.8rem;
+		color: var(--color-label);
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+
+	.talk-desc {
+		font-size: 0.9rem;
+		color: var(--color-text-muted);
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	.skills-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 		gap: 1rem;
