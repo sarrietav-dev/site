@@ -162,6 +162,7 @@ pre {
   padding: 1rem;
   overflow-x: auto;
   margin-bottom: 1rem;
+  color: var(--color-text);
 }
 
 code {
@@ -178,44 +179,20 @@ code {
   color: var(--color-syntax-red);
 }
 
-/* Shiki syntax highlighting */
+/* Shiki syntax highlighting with dual-theme support */
+.astro-code {
+  color: var(--shiki-light, var(--color-text));
+  background-color: var(--shiki-light-bg, var(--color-code-bg));
+}
+
+@media (prefers-color-scheme: dark) {
+  .astro-code {
+    color: var(--shiki-dark, var(--color-text));
+    background-color: var(--shiki-dark-bg, var(--color-code-bg));
+  }
+}
+
 pre code {
   background-color: transparent;
   color: inherit;
-}
-
-/* Token colors for syntax highlighting */
-.shiki span {
-  color: var(--color-text);
-}
-
-.shiki .token.keyword {
-  color: var(--color-syntax-green);
-}
-
-.shiki .token.string,
-.shiki .token.attr-value {
-  color: var(--color-syntax-cyan);
-}
-
-.shiki .token.function,
-.shiki .token.tag {
-  color: var(--color-syntax-orange);
-}
-
-.shiki .token.number,
-.shiki .token.constant {
-  color: var(--color-syntax-purple);
-}
-
-.shiki .token.comment {
-  color: var(--color-text-faint);
-}
-
-.shiki .token.operator {
-  color: var(--color-text-muted);
-}
-
-.shiki .token.variable {
-  color: var(--color-syntax-blue);
 }
