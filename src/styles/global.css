@@ -180,15 +180,25 @@ code {
 }
 
 /* Shiki syntax highlighting with dual-theme support */
+/* Light mode (default) */
 .astro-code {
-  color: var(--shiki-light, var(--color-text));
   background-color: var(--shiki-light-bg, var(--color-code-bg));
+  color: var(--shiki-light, var(--color-text));
 }
 
+.astro-code span[style*="--shiki-light"] {
+  color: var(--shiki-light);
+}
+
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
   .astro-code {
-    color: var(--shiki-dark, var(--color-text));
     background-color: var(--shiki-dark-bg, var(--color-code-bg));
+    color: var(--shiki-dark, var(--color-text));
+  }
+
+  .astro-code span[style*="--shiki-dark"] {
+    color: var(--shiki-dark);
   }
 }
 
