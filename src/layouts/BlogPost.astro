@@ -28,7 +28,9 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
   </head>
   <body>
     <nav>
-      <a href="/">← back</a>
+      <a href="/">home</a>
+      <a href="/now">now</a>
+      <a href="/blog">blog</a>
     </nav>
     <article>
       <header>
@@ -42,7 +44,25 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
 
 <style>
   nav {
-    margin-bottom: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+    font-size: 0.875rem;
+  }
+
+  nav a {
+    color: var(--color-label);
+    text-decoration: none;
+  }
+
+  nav a[href="/blog"] {
+    color: var(--color-text);
+  }
+
+  nav a:hover {
+    color: var(--color-text);
+    opacity: 1;
   }
 
   article header {
