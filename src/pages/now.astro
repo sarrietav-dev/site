@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Nav from '../components/Nav.astro';
 ---
 
 <html lang="en">
@@ -14,11 +15,7 @@ import '../styles/global.css';
     <title>Now — Sebastian Arrieta</title>
   </head>
   <body>
-    <nav>
-      <a href="/">home</a>
-      <a href="/now">now</a>
-      <a href="/blog">blog</a>
-    </nav>
+    <Nav />
 
     <div class="section">
       <div class="label">/now</div>
@@ -34,28 +31,6 @@ import '../styles/global.css';
 </html>
 
 <style>
-  nav {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1.25rem;
-    margin-bottom: 2.5rem;
-    font-size: 0.875rem;
-  }
-
-  nav a {
-    color: var(--color-label);
-    text-decoration: none;
-  }
-
-  nav a[href="/now"] {
-    color: var(--color-text);
-  }
-
-  nav a:hover {
-    color: var(--color-text);
-    opacity: 1;
-  }
-
   .section {
     margin-bottom: 1.5rem;
   }

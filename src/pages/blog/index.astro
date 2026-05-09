@@ -1,5 +1,6 @@
 ---
 import '../../styles/global.css';
+import Nav from '../../components/Nav.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog'))
@@ -18,11 +19,7 @@ const posts = (await getCollection('blog'))
     <title>Blog — Sebastian Arrieta</title>
   </head>
   <body>
-    <nav>
-      <a href="/">home</a>
-      <a href="/now">now</a>
-      <a href="/blog">blog</a>
-    </nav>
+    <Nav />
     <main>
       <h1>Blog</h1>
       {posts.length === 0 ? (

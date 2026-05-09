@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Nav from '../components/Nav.astro';
 import Experience from '../components/Experience.astro';
 ---
 
@@ -16,12 +17,7 @@ import Experience from '../components/Experience.astro';
 		<title>Sebastian Arrieta - Resume</title>
 	</head>
 	<body>
-		<nav>
-			<a href="/">home</a>
-			<a href="/now">now</a>
-			<a href="/blog">blog</a>
-			<a href="/resume">resume</a>
-		</nav>
+		<Nav />
 		<main>
 			<div class="hero">
 				<h1>Sebastian Arrieta Villarreal</h1>
@@ -133,24 +129,6 @@ import Experience from '../components/Experience.astro';
 </html>
 
 <style>
-	nav {
-		display: flex;
-		justify-content: flex-end;
-		gap: 1.25rem;
-		margin-bottom: 2.5rem;
-		font-size: 0.875rem;
-	}
-
-	nav a {
-		color: var(--color-label);
-		text-decoration: none;
-	}
-
-	nav a:hover {
-		color: var(--color-text);
-		opacity: 1;
-	}
-
 	.hero {
 		margin-bottom: 1.5rem;
 	}

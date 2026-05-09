@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import Blogs from '../components/Blogs.astro';
@@ -20,12 +21,7 @@ import Contact from '../components/Contact.astro';
 		<link rel="alternate" type="application/rss+xml" title="Sebastian Arrieta" href="/rss.xml" />
 	</head>
 	<body>
-		<nav>
-			<a href="/">home</a>
-			<a href="/now">now</a>
-			<a href="/blog">blog</a>
-			<a href="/resume">resume</a>
-		</nav>
+		<Nav />
 		<main>
 			<Hero />
 			<About />
@@ -39,24 +35,6 @@ import Contact from '../components/Contact.astro';
 </html>
 
 <style>
-	nav {
-		display: flex;
-		justify-content: flex-end;
-		gap: 1.25rem;
-		margin-bottom: 2.5rem;
-		font-size: 0.875rem;
-	}
-
-	nav a {
-		color: var(--color-label);
-		text-decoration: none;
-	}
-
-	nav a:hover {
-		color: var(--color-text);
-		opacity: 1;
-	}
-
 	footer {
 		margin-top: 3rem;
 		padding-top: 1rem;
