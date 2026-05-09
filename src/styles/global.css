@@ -11,22 +11,57 @@
 :root {
   /* Light mode colors (default) — Flexoki */
   --color-bg: #FFFCF0;
+  --color-bg-2: #F2F0E5;
   --color-text: #100F0F;
   --color-text-muted: #6F6E69;
+  --color-text-faint: #B7B5AC;
   --color-label: #B7B5AC;
+  --color-border: #CECDC3;
+
+  /* Syntax highlighting colors — Light mode (use 600 weight) */
+  --color-syntax-red: #AF3029;
+  --color-syntax-orange: #BC5215;
+  --color-syntax-yellow: #AD8301;
+  --color-syntax-green: #66800B;
+  --color-syntax-cyan: #24837B;
+  --color-syntax-blue: #205EA6;
+  --color-syntax-purple: #5E409D;
+  --color-syntax-magenta: #A02F6F;
+
+  /* Code block background */
+  --color-code-bg: #F2F0E5;
+  --color-code-border: #CECDC3;
 
   /* Typography */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
                "Helvetica Neue", Arial, sans-serif;
+  --font-mono: 'Courier New', monospace;
 }
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-bg: #100F0F;
+    --color-bg-2: #1C1B1A;
     --color-text: #CECDC3;
-    --color-text-muted: #6F6E69;
+    --color-text-muted: #878580;
+    --color-text-faint: #575653;
     --color-label: #575653;
+    --color-border: #403E3C;
+
+    /* Syntax highlighting colors — Dark mode (use 400 weight) */
+    --color-syntax-red: #D14D41;
+    --color-syntax-orange: #DA702C;
+    --color-syntax-yellow: #D0A215;
+    --color-syntax-green: #879A39;
+    --color-syntax-cyan: #3AA99F;
+    --color-syntax-blue: #4385BE;
+    --color-syntax-purple: #8B7EC8;
+    --color-syntax-magenta: #CE5D97;
+
+    /* Code block background */
+    --color-code-bg: #1C1B1A;
+    --color-code-border: #343331;
   }
 }
 
@@ -97,4 +132,70 @@ a:hover {
 a:focus-visible {
   outline: 2px solid var(--color-text);
   outline-offset: 2px;
+}
+
+/* Code blocks */
+pre {
+  background-color: var(--color-code-bg);
+  border: 1px solid var(--color-code-border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  line-height: 1.5;
+}
+
+/* Inline code */
+:not(pre) > code {
+  background-color: var(--color-code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  color: var(--color-syntax-red);
+}
+
+/* Shiki syntax highlighting */
+pre code {
+  background-color: transparent;
+  color: inherit;
+}
+
+/* Token colors for syntax highlighting */
+.shiki span {
+  color: var(--color-text);
+}
+
+.shiki .token.keyword {
+  color: var(--color-syntax-green);
+}
+
+.shiki .token.string,
+.shiki .token.attr-value {
+  color: var(--color-syntax-cyan);
+}
+
+.shiki .token.function,
+.shiki .token.tag {
+  color: var(--color-syntax-orange);
+}
+
+.shiki .token.number,
+.shiki .token.constant {
+  color: var(--color-syntax-purple);
+}
+
+.shiki .token.comment {
+  color: var(--color-text-faint);
+}
+
+.shiki .token.operator {
+  color: var(--color-text-muted);
+}
+
+.shiki .token.variable {
+  color: var(--color-syntax-blue);
 }
