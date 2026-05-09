@@ -19,29 +19,46 @@ import Contact from '../components/Contact.astro';
 		<title>Sebastian Arrieta - Software Engineer</title>
 	</head>
 	<body>
-		<Hero />
-		<About />
-		<Blogs />
-		<Contact />
-		<div class="now-link">
-			<a href="/now">/now</a>
-		</div>
+		<nav>
+			<a href="/">home</a>
+			<a href="/now">now</a>
+			<a href="/blog">blog</a>
+		</nav>
+		<main>
+			<Hero />
+			<About />
+			<Blogs />
+			<Contact />
+		</main>
+		<footer>
+			<p>© {new Date().getFullYear()} Sebastian Arrieta</p>
+		</footer>
 	</body>
 </html>
 
 <style>
-  .now-link {
-    margin-bottom: 2rem;
-    font-size: 0.875rem;
-  }
+	nav {
+		display: flex;
+		gap: 1.25rem;
+		margin-bottom: 2.5rem;
+		font-size: 0.875rem;
+	}
 
-  .now-link a {
-    color: var(--color-label);
-    text-decoration: none;
-  }
+	nav a {
+		color: var(--color-label);
+		text-decoration: none;
+	}
 
-  .now-link a:hover {
-    color: var(--color-text);
-    opacity: 1;
-  }
+	nav a:hover {
+		color: var(--color-text);
+		opacity: 1;
+	}
+
+	footer {
+		margin-top: 3rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--color-label);
+		font-size: 0.8rem;
+		color: var(--color-label);
+	}
 </style>
