@@ -9,11 +9,11 @@
 
 /* CSS Custom Properties */
 :root {
-  /* Light mode colors (default) */
-  --color-bg: #f4f1ea;
-  --color-text: #1a1a1a;
-  --color-text-muted: #6b6b6b;
-  --color-label: #999999;
+  /* Light mode colors (default) — Flexoki */
+  --color-bg: #FFFCF0;
+  --color-text: #100F0F;
+  --color-text-muted: #6F6E69;
+  --color-label: #B7B5AC;
 
   /* Typography */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -23,10 +23,10 @@
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #1a1a1a;
-    --color-text: #e8e6e3;
-    --color-text-muted: #888888;
-    --color-label: #666666;
+    --color-bg: #100F0F;
+    --color-text: #CECDC3;
+    --color-text-muted: #6F6E69;
+    --color-label: #575653;
   }
 }
 
