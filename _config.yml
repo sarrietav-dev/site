@@ -1,0 +1,32 @@
+title: Sebastian Arrieta
+email: sarrietav.dev@gmail.com
+description: >-
+  Software engineer writing about technology and ideas.
+url: "https://sarrietav.dev"
+twitter_username: sarrietav
+github_username: sarrietav-dev
+
+permalink: /blog/:slug/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: /rss.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+
+sass:
+  style: compressed
