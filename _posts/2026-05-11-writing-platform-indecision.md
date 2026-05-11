@@ -21,4 +21,4 @@ So what I'm doing know is to just host my writing in my own place. I won't care 
 
 Probably a soul will stumble to my site, and might benefit from this writing. That's great, but not a great incentive. At least for me.
 
-I guess if somebody asked me about how to start writing, like anybody says, the best advice is to just do it. And I might add: just for yourself. 
+I guess if somebody asked me about how to start writing, like anybody says, the best advice is to just do it. And I might add: just for yourself.
