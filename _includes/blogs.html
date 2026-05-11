@@ -1,23 +1,25 @@
 <div class="section">
-  <div class="label">/blog</div>
+  <h2 class="label">/blog</h2>
   <div class="content">
     {% assign recent = site.posts | slice: 0, 5 %}
     {% if recent.size == 0 %}
       <p class="empty">No posts yet.</p>
     {% else %}
-      <div class="post-list">
+      <ul class="post-list">
         {% for post in recent %}
-          <a href="{{ post.url }}" class="post-card">
-            <div class="post-meta">
-              <span class="post-title">{{ post.title }}</span>
-              <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
-                {{ post.date | date: '%b %d, %Y' }}
-              </time>
-            </div>
-            <p class="post-description">{{ post.description }}</p>
-          </a>
+          <li>
+            <a href="{{ post.url }}" class="post-card">
+              <div class="post-meta">
+                <span class="post-title">{{ post.title }}</span>
+                <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+                  {{ post.date | date: '%b %d, %Y' }}
+                </time>
+              </div>
+              <p class="post-description">{{ post.description }}</p>
+            </a>
+          </li>
         {% endfor %}
-      </div>
+      </ul>
     {% endif %}
   </div>
 </div>

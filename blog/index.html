@@ -8,14 +8,16 @@ description: Blog — Sebastian Arrieta
   {% if site.posts.size == 0 %}
     <p class="empty">No posts yet.</p>
   {% else %}
-    {% for post in site.posts %}
-      <div class="post-entry">
-        <a href="{{ post.url }}">
-          <span class="title">{{ post.title }}</span>
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %d, %Y' }}</time>
-        </a>
-        <p>{{ post.description }}</p>
-      </div>
-    {% endfor %}
+    <ul class="post-list">
+      {% for post in site.posts %}
+        <li class="post-entry">
+          <a href="{{ post.url }}">
+            <span class="title">{{ post.title }}</span>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %d, %Y' }}</time>
+          </a>
+          <p>{{ post.description }}</p>
+        </li>
+      {% endfor %}
+    </ul>
   {% endif %}
 </div>

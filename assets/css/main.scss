@@ -39,8 +39,8 @@
   --color-bg-2: var(--flexoki-50);
   --color-text: var(--flexoki-black);
   --color-text-muted: var(--flexoki-600);
-  --color-text-faint: var(--flexoki-300);
-  --color-label: var(--flexoki-300);
+  --color-text-faint: var(--flexoki-600);
+  --color-label: var(--flexoki-600);
   --color-border: var(--flexoki-200);
   --color-code-bg: var(--flexoki-50);
   --color-code-border: var(--flexoki-200);
@@ -55,9 +55,9 @@
     --color-bg: var(--flexoki-black);
     --color-bg-2: var(--flexoki-950);
     --color-text: var(--flexoki-200);
-    --color-text-muted: var(--flexoki-500);
-    --color-text-faint: var(--flexoki-700);
-    --color-label: var(--flexoki-700);
+    --color-text-muted: var(--flexoki-300);
+    --color-text-faint: var(--flexoki-500);
+    --color-label: var(--flexoki-300);
     --color-border: var(--flexoki-800);
     --color-code-bg: var(--flexoki-950);
     --color-code-border: var(--flexoki-850);
@@ -82,6 +82,23 @@ body {
   padding: 2rem;
 }
 
+.skip-link {
+  background: var(--color-bg);
+  border: 2px solid var(--color-text);
+  border-radius: 4px;
+  color: var(--color-text);
+  left: 1rem;
+  padding: 0.5rem 0.75rem;
+  position: absolute;
+  top: 1rem;
+  transform: translateY(-200%);
+  z-index: 10;
+}
+
+.skip-link:focus-visible { transform: translateY(0); }
+
+main:focus { outline: none; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
@@ -100,7 +117,7 @@ a {
   transition: opacity 0.2s ease;
 }
 a:hover { opacity: 0.6; }
-a:focus-visible { outline: 2px solid var(--color-text); outline-offset: 2px; }
+a:focus-visible { outline: 2px solid var(--color-text); outline-offset: 3px; }
 
 /* Code blocks */
 pre {
@@ -190,6 +207,8 @@ nav a.active {
 .label {
   color: var(--color-label);
   font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
   margin-bottom: 0.5rem;
 }
 .content { color: var(--color-text); }
@@ -199,8 +218,10 @@ nav a.active {
 /* Hero */
 .hero { margin-bottom: 1.5rem; }
 .hero h1 { margin-bottom: 0.5rem; }
+.tagline { color: var(--color-text-muted); line-height: 1.5; }
 
 /* Blog index */
+.post-list,
 .blog-list { list-style: none; display: flex; flex-direction: column; gap: 1.25rem; }
 .post-card {
   display: block;
@@ -366,7 +387,7 @@ details[open] > summary.callout-title::after { transform: rotate(225deg); }
 .talk-date { font-size: 0.8rem; color: var(--color-label); white-space: nowrap; flex-shrink: 0; }
 .talk-desc { font-size: 0.9rem; color: var(--color-text-muted); margin: 0; line-height: 1.5; }
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
-.skill-group h4 { font-size: 0.875rem; font-weight: 500; color: var(--color-text); margin-bottom: 0.25rem; }
+.skill-group h3 { font-size: 0.875rem; font-weight: 500; color: var(--color-text); margin-bottom: 0.25rem; }
 .skill-group p { font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.4; }
 .education-item { padding-bottom: 1rem; }
 .ed-header {
