@@ -1,0 +1,72 @@
+skip_to_content: Skip to content
+
+nav:
+  label: Primary navigation
+  home: home
+  now: now
+  blog: blog
+  resume: resume
+
+language:
+  label: Language selector
+  english: English
+  spanish: Spanish
+
+hero:
+  tagline: Software Engineer @
+
+about:
+  label: /about
+  paragraphs:
+    - >-
+      I'm a software engineer passionate about building elegant solutions to complex problems.
+      With expertise in modern web technologies and a focus on clean, maintainable code,
+      I help bring ideas to life through software.
+    - >-
+      I've worked at <a href="https://ples.com.co" target="_blank" rel="noopener noreferrer">Ples</a> and
+      <a href="https://pragma.co" target="_blank" rel="noopener noreferrer">Pragma</a>, where I've contributed
+      to building innovative solutions and scalable systems.
+
+blog:
+  label: /blog
+  title: Blog
+  empty: No posts yet.
+
+contact:
+  label: /contact
+
+now:
+  label: /now
+  title: Now - Sebastian Arrieta
+  description: What Sebastian Arrieta is doing now.
+  intro: Here's what I'm focused on right now.
+  updated: Updated May 2026
+  what_is_now: what is a now page?
+
+months:
+  - January
+  - February
+  - March
+  - April
+  - May
+  - June
+  - July
+  - August
+  - September
+  - October
+  - November
+  - December
+
+months_short:
+  - Jan
+  - Feb
+  - Mar
+  - Apr
+  - May
+  - Jun
+  - Jul
+  - Aug
+  - Sep
+  - Oct
+  - Nov
+  - Dec

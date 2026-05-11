@@ -1,0 +1,72 @@
+skip_to_content: Saltar al contenido
+
+nav:
+  label: Navegación principal
+  home: inicio
+  now: ahora
+  blog: blog
+  resume: hoja de vida
+
+language:
+  label: Selector de idioma
+  english: Inglés
+  spanish: Español
+
+hero:
+  tagline: Ingeniero de Software @
+
+about:
+  label: /sobre-mi
+  paragraphs:
+    - >-
+      Soy un ingeniero de software apasionado por construir soluciones elegantes para problemas complejos.
+      Con experiencia en tecnologías web modernas y un enfoque en código limpio y mantenible,
+      ayudo a convertir ideas en software.
+    - >-
+      He trabajado en <a href="https://ples.com.co" target="_blank" rel="noopener noreferrer">Ples</a> y
+      <a href="https://pragma.co" target="_blank" rel="noopener noreferrer">Pragma</a>, donde he contribuido
+      a construir soluciones innovadoras y sistemas escalables.
+
+blog:
+  label: /blog
+  title: Blog
+  empty: Todavía no hay publicaciones.
+
+contact:
+  label: /contacto
+
+now:
+  label: /ahora
+  title: Ahora - Sebastian Arrieta
+  description: En qué está trabajando Sebastian Arrieta ahora.
+  intro: Esto es en lo que estoy enfocado ahora mismo.
+  updated: Actualizado en mayo de 2026
+  what_is_now: qué es una página now?
+
+months:
+  - enero
+  - febrero
+  - marzo
+  - abril
+  - mayo
+  - junio
+  - julio
+  - agosto
+  - septiembre
+  - octubre
+  - noviembre
+  - diciembre
+
+months_short:
+  - ene
+  - feb
+  - mar
+  - abr
+  - may
+  - jun
+  - jul
+  - ago
+  - sep
+  - oct
+  - nov
+  - dic

@@ -37,6 +37,7 @@ public/pagefind
 .playwright-cli/
 *.yml
 !_config.yml
+!_data/*.yml
 
 # unignore site logo images
 !currents-keystones-logo.png
