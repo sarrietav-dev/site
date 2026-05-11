@@ -36,23 +36,29 @@ rename_post() {
   if [[ "$src" != "$dst" ]]; then
     cp "$src" "$dst"
   fi
+
+  # Return the destination filename
+  echo "$new_name"
 }
 
 # Create destination
 mkdir -p "$POSTS_DST"
 
+# Track which posts exist in source (by new name)
+declare -A synced_posts
+
 # Copy and rename posts from blog dir
 for post in "$BLOG_SRC"/*.md; do
   [[ -e "$post" ]] || continue
-  rename_post "$post" "$POSTS_DST"
+  new_name=$(rename_post "$post" "$POSTS_DST")
+  synced_posts["$new_name"]=1
 done
 
 # Remove posts that no longer exist in source
 for post in "$POSTS_DST"/*.md; do
   [[ -e "$post" ]] || continue
   basename="${post##*/}"
-  # Find corresponding source file (ignore date prefix when matching)
-  if ! find "$BLOG_SRC" -name "*.md" -exec basename {} \; | grep -qF "${basename#*-}"; then
+  if [[ -z "${synced_posts[$basename]:-}" ]]; then
     rm "$post"
   fi
 done
