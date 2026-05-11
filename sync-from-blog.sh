@@ -87,13 +87,27 @@ if [[ -n "$WRITING_REPO" && -d "$WRITING_REPO/.git" ]]; then
   ) || true
 fi
 
-cd "$SITE_ROOT"
-git add -A
-git diff --cached --quiet && { echo "blog: no changes"; exit 0; }
+cd "$SITE_ROOT" || { echo "ERROR: cannot cd to $SITE_ROOT"; exit 1; }
 
-git commit -m "blog: sync $(date +%Y-%m-%d\ %H:%M)" || { echo "git commit failed"; exit 1; }
+# Stage changes
+if ! git add -A 2>&1; then
+  echo "ERROR: git add failed"
+  exit 1
+fi
 
-# Push; warn but don't fail if it can't (auth, network, or remote issue)
+# Check if there are changes
+if git diff --cached --quiet 2>/dev/null; then
+  echo "blog: no changes"
+  exit 0
+fi
+
+# Commit
+if ! git commit -m "blog: sync $(date +%Y-%m-%d\ %H:%M)" 2>&1; then
+  echo "ERROR: git commit failed"
+  exit 1
+fi
+
+# Push (warn but don't fail)
 if ! git push 2>&1; then
   echo "⚠️  git push failed (auth, network, or remote issue) — commit is local"
   exit 0
