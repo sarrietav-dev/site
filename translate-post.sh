@@ -61,9 +61,9 @@ if [[ -z "$es_slug" ]]; then
   es_slug="es-$(basename "$EN_POST" .md)"
 fi
 
-# Write Spanish post
+# Write Spanish post (remove spanish: true flag if it appears)
 es_filename="${date}-${es_slug}.md"
 es_post="$POSTS_DIR/$es_filename"
-echo "$translated" > "$es_post"
+echo "$translated" | sed '/^spanish: true/d' > "$es_post"
 
 echo "blog: created Spanish post → $es_filename" >&2
