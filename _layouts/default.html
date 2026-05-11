@@ -1,5 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+{% assign lang = page.lang | default: site.lang | default: 'en' %}
+{% assign t = site.data[lang] | default: site.data.en %}
+{% if page.translation_key %}
+  {% assign translations = site.posts | where: 'translation_key', page.translation_key %}
+  {% if lang == 'es' %}
+    {% assign alternate_page = translations | where: 'lang', 'en' | first %}
+    {% assign alternate_lang = 'en' %}
+  {% else %}
+    {% assign alternate_page = translations | where: 'lang', 'es' | first %}
+    {% assign alternate_lang = 'es' %}
+  {% endif %}
+  {% assign alternate_url = alternate_page.url %}
+{% elsif lang == 'es' %}
+  {% if page.url == '/es/' %}{% assign alternate_url = '/' %}{% else %}{% assign alternate_url = page.url | remove_first: '/es' %}{% endif %}
+  {% assign alternate_lang = 'en' %}
+{% else %}
+  {% if page.url == '/' %}{% assign alternate_url = '/es/' %}{% else %}{% assign alternate_url = page.url | prepend: '/es' %}{% endif %}
+  {% assign alternate_lang = 'es' %}
+{% endif %}
+<html lang="{{ lang }}">
 <head>
   <meta charset="utf-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -9,10 +28,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/css/main.css" />
   {% seo %}
+  {% if alternate_url %}<link rel="alternate" hreflang="{{ alternate_lang }}" href="{{ alternate_url | absolute_url }}" />{% endif %}
   <link rel="alternate" type="application/rss+xml" title="Sebastian Arrieta" href="/rss.xml" />
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  <a class="skip-link" href="#main-content">{{ t.skip_to_content }}</a>
   {% include nav.html %}
   <main id="main-content" tabindex="-1">
     {{ content }}

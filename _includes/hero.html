@@ -1,4 +1,7 @@
+{% assign lang = page.lang | default: site.lang | default: 'en' %}
+{% assign t = site.data[lang] | default: site.data.en %}
+
 <div class="hero">
   <h1>Sebastian Arrieta</h1>
-  <p class="tagline">Software Engineer @ <a href="https://disruptica.com" target="_blank" rel="noopener noreferrer">Disruptica</a></p>
+  <p class="tagline">{{ t.hero.tagline }} <a href="https://disruptica.com" target="_blank" rel="noopener noreferrer">Disruptica</a></p>
 </div>

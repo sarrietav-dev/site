@@ -1,9 +1,13 @@
+{% assign lang = page.lang | default: site.lang | default: 'en' %}
+{% assign t = site.data[lang] | default: site.data.en %}
+{% assign localized_posts = site.posts | where: 'lang', lang %}
+
 <div class="section">
-  <h2 class="label">/blog</h2>
+  <h2 class="label">{{ t.blog.label }}</h2>
   <div class="content">
-    {% assign recent = site.posts | slice: 0, 5 %}
+    {% assign recent = localized_posts | slice: 0, 5 %}
     {% if recent.size == 0 %}
-      <p class="empty">No posts yet.</p>
+      <p class="empty">{{ t.blog.empty }}</p>
     {% else %}
       <ul class="post-list">
         {% for post in recent %}
@@ -12,7 +16,7 @@
               <div class="post-meta">
                 <span class="post-title">{{ post.title }}</span>
                 <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
-                  {{ post.date | date: '%b %d, %Y' }}
+                  {% include date.html date=post.date lang=lang format='short' %}
                 </time>
               </div>
               <p class="post-description">{{ post.description }}</p>

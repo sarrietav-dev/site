@@ -1,0 +1,12 @@
+{%- assign lang = include.lang | default: page.lang | default: site.lang | default: 'en' -%}
+{%- assign t = site.data[lang] | default: site.data.en -%}
+{%- assign month_index = include.date | date: '%-m' | minus: 1 -%}
+{%- assign day = include.date | date: '%-d' -%}
+{%- assign year = include.date | date: '%Y' -%}
+{%- if include.format == 'short' -%}
+  {%- assign month = t.months_short[month_index] -%}
+  {%- if lang == 'es' -%}{{ day }} {{ month }} {{ year }}{%- else -%}{{ month }} {{ day }}, {{ year }}{%- endif -%}
+{%- else -%}
+  {%- assign month = t.months[month_index] -%}
+  {%- if lang == 'es' -%}{{ day }} de {{ month }} de {{ year }}{%- else -%}{{ month }} {{ day }}, {{ year }}{%- endif -%}
+{%- endif -%}

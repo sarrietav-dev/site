@@ -1,5 +1,8 @@
+{% assign lang = page.lang | default: site.lang | default: 'en' %}
+{% assign t = site.data[lang] | default: site.data.en %}
+
 <div class="section">
-  <h2 class="label">/contact</h2>
+  <h2 class="label">{{ t.contact.label }}</h2>
   <div class="content">
     <div class="links">
       <a href="https://x.com/sarrietav" target="_blank" rel="noopener noreferrer" aria-label="Sebastian Arrieta on X">x</a>

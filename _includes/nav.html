@@ -1,6 +1,47 @@
-<nav aria-label="Primary navigation">
-  <a href="/"{% if page.url == '/' %} class="active" aria-current="page"{% endif %}>home</a>
-  <a href="/now"{% if page.url == '/now.html' or page.url == '/now/' %} class="active" aria-current="page"{% endif %}>now</a>
-  <a href="/blog"{% if page.url contains '/blog' %} class="active" aria-current="page"{% endif %}>blog</a>
-  <a href="/resume"{% if page.url == '/resume.html' or page.url == '/resume/' %} class="active" aria-current="page"{% endif %}>resume</a>
+{% assign lang = page.lang | default: site.lang | default: 'en' %}
+{% assign t = site.data[lang] | default: site.data.en %}
+
+{% if lang == 'es' %}
+  {% assign home_url = '/es/' %}
+  {% assign now_url = '/es/now/' %}
+  {% assign blog_url = '/es/blog/' %}
+  {% assign es_url = page.url %}
+  {% if page.translation_key %}
+    {% assign translations = site.posts | where: 'translation_key', page.translation_key %}
+    {% assign en_page = translations | where: 'lang', 'en' | first %}
+    {% assign en_url = en_page.url | default: '/' %}
+  {% elsif page.url == '/es/' %}
+    {% assign en_url = '/' %}
+  {% else %}
+    {% assign en_url = page.url | remove_first: '/es' %}
+  {% endif %}
+{% else %}
+  {% assign home_url = '/' %}
+  {% assign now_url = '/now/' %}
+  {% assign blog_url = '/blog/' %}
+  {% assign en_url = page.url %}
+  {% if page.translation_key %}
+    {% assign translations = site.posts | where: 'translation_key', page.translation_key %}
+    {% assign es_page = translations | where: 'lang', 'es' | first %}
+    {% assign es_url = es_page.url | default: '/es/' %}
+  {% elsif page.url == '/' %}
+    {% assign es_url = '/es/' %}
+  {% else %}
+    {% assign es_url = page.url | prepend: '/es' %}
+  {% endif %}
+{% endif %}
+
+<nav aria-label="{{ t.nav.label }}">
+  <div class="nav-links">
+    <a href="{{ home_url }}"{% if page.url == '/' or page.url == '/es/' %} class="active" aria-current="page"{% endif %}>{{ t.nav.home }}</a>
+    <a href="{{ now_url }}"{% if page.url == '/now.html' or page.url == '/now/' or page.url == '/es/now.html' or page.url == '/es/now/' %} class="active" aria-current="page"{% endif %}>{{ t.nav.now }}</a>
+    <a href="{{ blog_url }}"{% if page.url contains '/blog' %} class="active" aria-current="page"{% endif %}>{{ t.nav.blog }}</a>
+    {% if lang == 'en' %}
+      <a href="/resume"{% if page.url == '/resume.html' or page.url == '/resume/' %} class="active" aria-current="page"{% endif %}>{{ t.nav.resume }}</a>
+    {% endif %}
+  </div>
+  <div class="language-switcher" aria-label="{{ t.language.label }}">
+    <a href="{{ en_url }}" lang="en" aria-label="{{ t.language.english }}"{% if lang == 'en' %} class="active" aria-current="true"{% endif %}>🇺🇸</a>
+    <a href="{{ es_url }}" lang="es" aria-label="{{ t.language.spanish }}"{% if lang == 'es' %} class="active" aria-current="true"{% endif %}>🇨🇴</a>
+  </div>
 </nav>

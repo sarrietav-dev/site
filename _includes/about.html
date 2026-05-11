@@ -1,15 +1,11 @@
+{% assign lang = page.lang | default: site.lang | default: 'en' %}
+{% assign t = site.data[lang] | default: site.data.en %}
+
 <div class="section">
-  <h2 class="label">/about</h2>
+  <h2 class="label">{{ t.about.label }}</h2>
   <div class="content">
-    <p>
-      I'm a software engineer passionate about building elegant solutions to complex problems.
-      With expertise in modern web technologies and a focus on clean, maintainable code,
-      I help bring ideas to life through software.
-    </p>
-    <p>
-      I've worked at <a href="https://ples.com.co" target="_blank" rel="noopener noreferrer">Ples</a> and
-      <a href="https://pragma.co" target="_blank" rel="noopener noreferrer">Pragma</a>, where I've contributed
-      to building innovative solutions and scalable systems.
-    </p>
+    {% for paragraph in t.about.paragraphs %}
+      <p>{{ paragraph }}</p>
+    {% endfor %}
   </div>
 </div>

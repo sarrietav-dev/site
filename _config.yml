@@ -3,6 +3,7 @@ email: sarrietav.dev@gmail.com
 description: >-
   Software engineer writing about technology and ideas.
 url: "https://sarrietav.dev"
+lang: en
 twitter_username: sarrietav
 github_username: sarrietav-dev
 
@@ -22,11 +23,13 @@ defaults:
       type: posts
     values:
       layout: post
+      lang: en
   - scope:
       path: ""
       type: pages
     values:
       layout: default
+      lang: en
 
 sass:
   style: compressed
