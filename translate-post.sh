@@ -22,12 +22,10 @@ if grep -rl "translation_key: $translation_key" "$POSTS_DIR" 2>/dev/null | xargs
   exit 0
 fi
 
-# Add lang: en and translation_key to English post if missing
+# Add lang: en and translation_key to English post if missing (using awk to preserve structure)
 if ! grep -q "^lang:" "$EN_POST"; then
-  # Insert lang: en before closing ---
-  sed -i '/^---$/!b;N;s/^---\n/---\nlang: en\n/' "$EN_POST"
-fi
-if ! grep -q "^translation_key:" "$EN_POST"; then
+  awk '/^---$/{if(++count==2){print "lang: en"; print "translation_key: '$translation_key'"}} 1' "$EN_POST" > "$EN_POST.tmp" && mv "$EN_POST.tmp" "$EN_POST"
+elif ! grep -q "^translation_key:" "$EN_POST"; then
   sed -i "/^lang: en/a translation_key: $translation_key" "$EN_POST"
 fi
 
