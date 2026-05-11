@@ -262,6 +262,72 @@ article :not(pre) > code {
   border-radius: 3px;
 }
 
+/* Obsidian-style callouts */
+.callout {
+  --callout-accent: var(--flexoki-blue-600);
+  background: color-mix(in srgb, var(--callout-accent) 9%, var(--color-bg));
+  border: 1px solid color-mix(in srgb, var(--callout-accent) 35%, var(--color-border));
+  border-left: 4px solid var(--callout-accent);
+  border-radius: 8px;
+  margin: 1rem 0;
+  padding: 0.875rem 1rem;
+}
+
+.callout-title {
+  align-items: center;
+  color: var(--callout-accent);
+  display: flex;
+  font-weight: 600;
+  gap: 0.5rem;
+  line-height: 1.4;
+}
+
+summary.callout-title {
+  cursor: pointer;
+  list-style: none;
+}
+
+summary.callout-title::-webkit-details-marker { display: none; }
+summary.callout-title::after {
+  border-bottom: 2px solid var(--callout-accent);
+  border-right: 2px solid var(--callout-accent);
+  content: "";
+  height: 0.45rem;
+  margin-left: auto;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  width: 0.45rem;
+}
+
+details[open] > summary.callout-title::after { transform: rotate(225deg); }
+.callout-icon::before { content: "i"; }
+.callout-content { margin-top: 0.5rem; }
+.callout-content > :last-child { margin-bottom: 0; }
+.callout-note { --callout-accent: var(--flexoki-blue-600); }
+.callout-abstract { --callout-accent: var(--flexoki-cyan-600); }
+.callout-info { --callout-accent: var(--flexoki-blue-600); }
+.callout-todo { --callout-accent: var(--flexoki-blue-600); }
+.callout-tip { --callout-accent: var(--flexoki-cyan-600); }
+.callout-success { --callout-accent: var(--flexoki-green-600); }
+.callout-question { --callout-accent: var(--flexoki-yellow-600); }
+.callout-warning { --callout-accent: var(--flexoki-orange-600); }
+.callout-failure { --callout-accent: var(--flexoki-red-600); }
+.callout-danger { --callout-accent: var(--flexoki-red-600); }
+.callout-bug { --callout-accent: var(--flexoki-red-600); }
+.callout-example { --callout-accent: var(--flexoki-purple-600); }
+.callout-quote { --callout-accent: var(--flexoki-600); }
+.callout-abstract .callout-icon::before { content: "A"; }
+.callout-todo .callout-icon::before { content: "+"; }
+.callout-tip .callout-icon::before { content: "!"; }
+.callout-success .callout-icon::before { content: "+"; }
+.callout-question .callout-icon::before { content: "?"; }
+.callout-warning .callout-icon::before { content: "!"; }
+.callout-failure .callout-icon::before,
+.callout-danger .callout-icon::before { content: "x"; }
+.callout-bug .callout-icon::before { content: "#"; }
+.callout-example .callout-icon::before { content: "E"; }
+.callout-quote .callout-icon::before { content: "\""; }
+
 /* Experience */
 .experiences { display: flex; flex-direction: column; gap: 1.5rem; }
 .experience { padding-bottom: 1rem; border-bottom: 1px solid var(--color-border); }
