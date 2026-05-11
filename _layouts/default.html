@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 {% assign lang = page.lang | default: site.lang | default: 'en' %}
 {% assign t = site.data[lang] | default: site.data.en %}
+{% assign alternate_url = nil %}
+{% assign alternate_lang = nil %}
 {% if page.translation_key %}
   {% assign translations = site.posts | where: 'translation_key', page.translation_key %}
   {% if lang == 'es' %}
@@ -12,11 +14,13 @@
   {% endif %}
   {% assign alternate_url = alternate_page.url %}
 {% elsif lang == 'es' %}
-  {% if page.url == '/es/' %}{% assign alternate_url = '/' %}{% else %}{% assign alternate_url = page.url | remove_first: '/es' %}{% endif %}
-  {% assign alternate_lang = 'en' %}
+  {% if page.url == '/es/' %}{% assign alternate_url = '/' %}{% assign alternate_lang = 'en' %}{% endif %}
+  {% if page.url == '/es/now/' %}{% assign alternate_url = '/now/' %}{% assign alternate_lang = 'en' %}{% endif %}
+  {% if page.url == '/es/blog/' %}{% assign alternate_url = '/blog/' %}{% assign alternate_lang = 'en' %}{% endif %}
 {% else %}
-  {% if page.url == '/' %}{% assign alternate_url = '/es/' %}{% else %}{% assign alternate_url = page.url | prepend: '/es' %}{% endif %}
-  {% assign alternate_lang = 'es' %}
+  {% if page.url == '/' %}{% assign alternate_url = '/es/' %}{% assign alternate_lang = 'es' %}{% endif %}
+  {% if page.url == '/now/' or page.url == '/now.html' %}{% assign alternate_url = '/es/now/' %}{% assign alternate_lang = 'es' %}{% endif %}
+  {% if page.url == '/blog/' %}{% assign alternate_url = '/es/blog/' %}{% assign alternate_lang = 'es' %}{% endif %}
 {% endif %}
 <html lang="{{ lang }}">
 <head>

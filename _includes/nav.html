@@ -1,33 +1,43 @@
 {% assign lang = page.lang | default: site.lang | default: 'en' %}
 {% assign t = site.data[lang] | default: site.data.en %}
+{% assign switch_url = nil %}
+{% assign switch_lang = nil %}
+{% assign switch_label = nil %}
+{% assign switch_flag = nil %}
 
 {% if lang == 'es' %}
   {% assign home_url = '/es/' %}
   {% assign now_url = '/es/now/' %}
   {% assign blog_url = '/es/blog/' %}
-  {% assign es_url = page.url %}
   {% if page.translation_key %}
     {% assign translations = site.posts | where: 'translation_key', page.translation_key %}
     {% assign en_page = translations | where: 'lang', 'en' | first %}
-    {% assign en_url = en_page.url | default: '/' %}
-  {% elsif page.url == '/es/' %}
-    {% assign en_url = '/' %}
-  {% else %}
-    {% assign en_url = page.url | remove_first: '/es' %}
+    {% assign switch_url = en_page.url %}
+  {% endif %}
+  {% if page.url == '/es/' %}{% assign switch_url = '/' %}{% endif %}
+  {% if page.url == '/es/now/' %}{% assign switch_url = '/now/' %}{% endif %}
+  {% if page.url == '/es/blog/' %}{% assign switch_url = '/blog/' %}{% endif %}
+  {% if switch_url %}
+    {% assign switch_lang = 'en' %}
+    {% assign switch_label = t.language.english %}
+    {% assign switch_flag = '🇺🇸' %}
   {% endif %}
 {% else %}
   {% assign home_url = '/' %}
   {% assign now_url = '/now/' %}
   {% assign blog_url = '/blog/' %}
-  {% assign en_url = page.url %}
   {% if page.translation_key %}
     {% assign translations = site.posts | where: 'translation_key', page.translation_key %}
     {% assign es_page = translations | where: 'lang', 'es' | first %}
-    {% assign es_url = es_page.url | default: '/es/' %}
-  {% elsif page.url == '/' %}
-    {% assign es_url = '/es/' %}
-  {% else %}
-    {% assign es_url = page.url | prepend: '/es' %}
+    {% assign switch_url = es_page.url %}
+  {% endif %}
+  {% if page.url == '/' %}{% assign switch_url = '/es/' %}{% endif %}
+  {% if page.url == '/now/' or page.url == '/now.html' %}{% assign switch_url = '/es/now/' %}{% endif %}
+  {% if page.url == '/blog/' %}{% assign switch_url = '/es/blog/' %}{% endif %}
+  {% if switch_url %}
+    {% assign switch_lang = 'es' %}
+    {% assign switch_label = t.language.spanish %}
+    {% assign switch_flag = '🇨🇴' %}
   {% endif %}
 {% endif %}
 
@@ -40,8 +50,9 @@
       <a href="/resume"{% if page.url == '/resume.html' or page.url == '/resume/' %} class="active" aria-current="page"{% endif %}>{{ t.nav.resume }}</a>
     {% endif %}
   </div>
-  <div class="language-switcher" aria-label="{{ t.language.label }}">
-    <a href="{{ en_url }}" lang="en" aria-label="{{ t.language.english }}"{% if lang == 'en' %} class="active" aria-current="true"{% endif %}>🇺🇸</a>
-    <a href="{{ es_url }}" lang="es" aria-label="{{ t.language.spanish }}"{% if lang == 'es' %} class="active" aria-current="true"{% endif %}>🇨🇴</a>
-  </div>
+  {% if switch_url %}
+    <div class="language-switcher" aria-label="{{ t.language.label }}">
+      <a href="{{ switch_url }}" lang="{{ switch_lang }}" aria-label="{{ switch_label }}">{{ switch_flag }}</a>
+    </div>
+  {% endif %}
 </nav>

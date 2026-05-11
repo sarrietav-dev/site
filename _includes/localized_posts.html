@@ -1,0 +1,7 @@
+{% assign localized_posts = '' | split: '' %}
+{% for post in site.posts %}
+  {% assign post_lang = post.lang | default: 'en' %}
+  {% if post_lang == lang %}
+    {% assign localized_posts = localized_posts | push: post %}
+  {% endif %}
+{% endfor %}

@@ -1,3 +1,11 @@
+---
+title: Writing Platform Indecision
+date: 2026-05-11
+description: Why I am choosing to write on my own site instead of waiting for the perfect platform.
+lang: en
+translation_key: writing-platform-indecision
+---
+
 I always wanted to write. I know the benefits of writing: it improves your thinking skills or helps you to organize your thoughts better. Yet, I've always come across the multiple options on where to host my writing.
 
 I went to these in the following order:

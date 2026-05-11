@@ -1,6 +1,6 @@
 {% assign lang = page.lang | default: site.lang | default: 'en' %}
 {% assign t = site.data[lang] | default: site.data.en %}
-{% assign localized_posts = site.posts | where: 'lang', lang %}
+{% include localized_posts.html %}
 
 <div class="section">
   <h2 class="label">{{ t.blog.label }}</h2>
