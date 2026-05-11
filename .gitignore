@@ -1,11 +1,16 @@
 # build output
-dist/
+_site/
+
+# jekyll cache
+.jekyll-cache/
 
 # generated types
 .astro/
 
 # dependencies
 node_modules/
+.bundle/
+vendor/
 
 # logs
 npm-debug.log*
@@ -24,12 +29,15 @@ pnpm-debug.log*
 .idea/
 
 # pagefind
-
 public/pagefind
 
 .obsidian
 
 # playwright testing
 .playwright-cli/
-*.png
 *.yml
+
+# unignore site logo images
+!currents-keystones-logo.png
+!fullstack-journal-logo.png
+!growing-christian-logo.png

@@ -1,0 +1,6 @@
+<nav>
+  <a href="/"{% if page.url == '/' %} class="active"{% endif %}>home</a>
+  <a href="/now"{% if page.url == '/now.html' or page.url == '/now/' %} class="active"{% endif %}>now</a>
+  <a href="/blog"{% if page.url contains '/blog' %} class="active"{% endif %}>blog</a>
+  <a href="/resume"{% if page.url == '/resume.html' or page.url == '/resume/' %} class="active"{% endif %}>resume</a>
+</nav>

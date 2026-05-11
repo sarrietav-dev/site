@@ -14,37 +14,18 @@ on:
 
 jobs:
   build:
-    name: Code standards & build
+    name: Build site
     runs-on: ubuntu-latest
-    timeout-minutes: 3
-
-    strategy:
-      matrix:
-        node-version: [20]
+    timeout-minutes: 5
 
     steps:
       - name: "☁️ Checkout repository"
         uses: actions/checkout@v4
 
-      - name: "📦 Install pnpm"
-        uses: pnpm/action-setup@v4
+      - name: "💎 Setup Ruby"
+        uses: ruby/setup-ruby@v1
         with:
-          version: 10.11.1
+          bundler-cache: true
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
-
-      - name: "📦 Install dependencies"
-        run: pnpm install
-
-      - name: "🔎 Lint code"
-        run: pnpm run lint
-
-      - name: "📝 Checking code format"
-        run: pnpm run format:check
-
-      - name: "🚀 Build the project"
-        run: pnpm run build
+      - name: "🚀 Build the site"
+        run: bundle exec jekyll build

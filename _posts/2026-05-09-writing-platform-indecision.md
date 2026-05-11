@@ -1,7 +1,7 @@
 ---
 title: Writing Platform Indecision
 description: On bouncing between platforms and finally just writing.
-pubDate: 2026-05-09
+date: 2026-05-09
 ---
 
 I always wanted to write. I know the benefits of writing: it improves your thinking skills or helps you to organize your thoughts better. Yet, I've always come across the multiple options on where to host my writing.
