@@ -15,7 +15,7 @@ La primera versión de la idea era simple: ejecutar Claude Code en un servidor. 
 
 Este artículo explica la arquitectura detrás de ese sistema y las decisiones involucradas al construir uno. Aquí tienes un breve recorrido del sistema en acción:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vI58bDkONGo?si=M28eX4K4A8uzInOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/vI58bDkONGo?si=M28eX4K4A8uzInOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## ¿Qué es un agente en la nube?
 
