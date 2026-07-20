@@ -300,6 +300,22 @@ article :not(pre) > code {
   padding: 0.15em 0.4em;
   border-radius: 3px;
 }
+article blockquote {
+  margin: 1.5rem 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 3px solid var(--flexoki-600);
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+article blockquote > :last-child { margin-bottom: 0; }
+article blockquote cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  font-style: normal;
+  color: var(--color-text-faint);
+}
+article blockquote cite::before { content: "\2014\00a0"; }
 
 /* Obsidian-style callouts */
 .callout {
