@@ -91,7 +91,7 @@ module MermaidSvg
   def render(source, theme)
     key = Digest::SHA1.hexdigest([RENDER_VERSION, theme, source].join("\0"))
     cache_path = File.join(CACHE_DIR, "#{key}.svg")
-    return File.read(cache_path) if File.exist?(cache_path)
+    return File.read(cache_path, encoding: "UTF-8") if File.exist?(cache_path)
 
     svg = run_mmdc(source, theme, "m#{key[0, 12]}")
     return nil if svg.nil?
@@ -129,7 +129,7 @@ module MermaidSvg
         return nil
       end
 
-      File.read(output)
+      File.read(output, encoding: "UTF-8")
     end
   end
 
