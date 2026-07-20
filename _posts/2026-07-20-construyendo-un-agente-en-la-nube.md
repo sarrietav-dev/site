@@ -7,13 +7,15 @@ translation_key: cloud-agent
 permalink: /es/blog/construyendo-un-agente-en-la-nube/
 ---
 
-Queríamos que BugLady tomara un requerimiento de software y lo convirtiera en un pull request sin necesidad de que un desarrollador ejecutara un agente localmente.
+Queríamos que [BugLady](https://buglady.ai/) tomara un requerimiento de software y lo convirtiera en un pull request sin necesidad de que un desarrollador ejecutara un agente localmente.
 
 BugLady ayuda a agencias y equipos de software a traducir las solicitudes de los clientes en trabajo sobre el que los ingenieros pueden actuar. El siguiente paso era obvio: en lugar de detenernos en un requerimiento aclarado, ¿podría el sistema implementarlo?
 
 La primera versión de la idea era simple: ejecutar Claude Code en un servidor. Pero mover un agente de programación desde el portátil de un desarrollador hacia la nube cambia el problema. Ahora necesitas ejecución aislada, planificación de trabajos, credenciales, validación, recuperación ante fallos y una forma controlada de publicar el resultado.
 
-Este artículo explica la arquitectura detrás de ese sistema y las decisiones involucradas al construir uno.
+Este artículo explica la arquitectura detrás de ese sistema y las decisiones involucradas al construir uno. Aquí tienes un breve recorrido del sistema en acción:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vI58bDkONGo?si=M28eX4K4A8uzInOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## ¿Qué es un agente en la nube?
 

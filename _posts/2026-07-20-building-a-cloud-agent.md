@@ -6,13 +6,15 @@ lang: en
 translation_key: cloud-agent
 ---
 
-We wanted BugLady to take a software requirement and turn it into a pull request without requiring a developer to run an agent locally.
+We wanted [BugLady](https://buglady.ai/) to take a software requirement and turn it into a pull request without requiring a developer to run an agent locally.
 
 BugLady helps agencies and software teams translate client requests into work engineers can act on. The next step was obvious: instead of stopping at a clarified requirement, could the system implement it?
 
 The first version of the idea was simple: run Claude Code on a server. But moving a coding agent from a developer’s laptop into the cloud changes the problem. You now need isolated execution, job scheduling, credentials, validation, failure recovery, and a controlled way to publish the result.
 
-This article explains the architecture behind that system and the decisions involved in building one.
+This article explains the architecture behind that system and the decisions involved in building one. Here is a short walkthrough of it in action:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vI58bDkONGo?si=M28eX4K4A8uzInOE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## What is a cloud agent?
 
