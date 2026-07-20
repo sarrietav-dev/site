@@ -482,6 +482,18 @@ details[open] > summary.callout-title::after { transform: rotate(225deg); }
 .callout-example .callout-icon::before { content: "E"; }
 .callout-quote .callout-icon::before { content: "\""; }
 
+/* Embedded media (YouTube iframes, etc.) scale to the content width */
+article iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+  margin: 0 0 1rem;
+}
+article img { max-width: 100%; height: auto; }
+
 /* Mermaid diagrams (pre-rendered to SVG at build time) */
 .mermaid-figure {
   background: var(--color-code-bg);
