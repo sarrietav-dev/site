@@ -411,20 +411,26 @@ details[open] > summary.callout-title::after { transform: rotate(225deg); }
 .callout-example .callout-icon::before { content: "E"; }
 .callout-quote .callout-icon::before { content: "\""; }
 
-/* Mermaid diagrams */
-pre.mermaid {
+/* Mermaid diagrams (pre-rendered to SVG at build time) */
+.mermaid-figure {
   background: var(--color-code-bg);
   border: 1px solid var(--color-code-border);
   border-radius: 6px;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
   overflow-x: auto;
   text-align: center;
   line-height: normal;
 }
-/* Hide the raw source until mermaid has rendered the SVG */
-pre.mermaid:not([data-processed="true"]) { color: transparent; }
-pre.mermaid svg { max-width: 100%; height: auto; }
+.mermaid-diagram svg { max-width: 100%; height: auto; }
+/* Show the SVG variant that matches the reader's color scheme (no JS).
+   !important overrides the inline display:none on the dark variant, which
+   exists so stylesheet-less contexts (RSS readers) show only one variant. */
+.mermaid-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  .mermaid-light { display: none !important; }
+  .mermaid-dark { display: block !important; }
+}
 
 /* Experience */
 .experiences { display: flex; flex-direction: column; gap: 1.5rem; }

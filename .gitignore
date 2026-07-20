@@ -4,6 +4,9 @@ _site/
 # jekyll cache
 .jekyll-cache/
 
+# pre-rendered mermaid SVG cache
+.mermaid-cache/
+
 # generated types
 .astro/
 

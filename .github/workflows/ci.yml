@@ -16,7 +16,7 @@ jobs:
   build:
     name: Build site
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
 
     steps:
       - name: "☁️ Checkout repository"
@@ -26,6 +26,21 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+
+      - name: "🟢 Setup Node"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: "🧭 Cache Puppeteer browser"
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/puppeteer
+          key: puppeteer-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: "📦 Install mermaid-cli"
+        run: npm ci
 
       - name: "🚀 Build the site"
         run: bundle exec jekyll build

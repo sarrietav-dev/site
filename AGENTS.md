@@ -3,9 +3,10 @@
 ## Commands
 
 - Install Ruby gems with `bundle install`.
-- Build the site with `bundle exec jekyll build`; this is the only CI check in `.github/workflows/ci.yml`.
+- Install Node deps with `npm ci` (or `npm install`); this provides `@mermaid-js/mermaid-cli`, used at build time to pre-render mermaid diagrams to SVG.
+- Build the site with `bundle exec jekyll build`; this is the only CI check in `.github/workflows/ci.yml` (which now also runs `npm ci` first).
 - Run locally with `bundle exec jekyll serve --livereload`.
-- There is no configured test, lint, typecheck, or Node package workflow in the current repo.
+- There is no configured test, lint, or typecheck workflow. Node is used only for the mermaid build tooling above.
 
 ## Project Shape
 
@@ -23,4 +24,5 @@
 
 - `_plugins/obsidian_callouts.rb` converts Obsidian-style blockquotes such as `> [!note] Title` into callout HTML after page/post conversion.
 - Callout colors and icons are defined in `assets/css/main.scss`; update plugin output and CSS together if changing callout markup.
+- `_plugins/mermaid_svg.rb` pre-renders ` ```mermaid ` blocks to inline SVG at build time (via `mmdc`), emitting light + dark variants toggled by `prefers-color-scheme` in `assets/css/main.scss`. This replaced the old client-side renderer, so diagrams work with JS disabled and no mermaid JS is shipped. Rendered SVGs are cached in `.mermaid-cache/` (gitignored) keyed by content hash; bump `RENDER_VERSION` in the plugin when changing theme colors or SVG post-processing.
 - `_config.yml` enables `jekyll-feed`, `jekyll-seo-tag`, and `jekyll-sitemap`; default layout and SEO metadata rely on page/post front matter.
