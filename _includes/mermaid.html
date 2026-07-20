@@ -1,0 +1,83 @@
+<script type="module">
+(async () => {
+  // Rouge renders ```mermaid fences as a plain, un-highlighted code block.
+  // Convert those into the <pre class="mermaid"> nodes mermaid expects,
+  // stashing the source so we can re-render on light/dark changes.
+  const blocks = document.querySelectorAll(
+    'div.language-mermaid, pre > code.language-mermaid'
+  );
+
+  const diagrams = [];
+  blocks.forEach((block) => {
+    const isWrapper = block.tagName !== 'CODE';
+    const codeEl = isWrapper ? block.querySelector('code') : block;
+    if (!codeEl) return;
+    const source = codeEl.textContent.trim();
+
+    const pre = document.createElement('pre');
+    pre.className = 'mermaid';
+    pre.dataset.source = source;
+    pre.textContent = source;
+
+    const target = isWrapper ? block : block.parentElement; // replace outer <pre>
+    target.replaceWith(pre);
+    diagrams.push(pre);
+  });
+
+  if (diagrams.length === 0) return; // don't pull the library in for nothing
+
+  const mermaid = (
+    await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs')
+  ).default;
+
+  // Flexoki-derived theme variables, one set per color scheme.
+  const themes = {
+    light: {
+      darkMode: false,
+      background: '#F2F0E5',       // flexoki-50 (matches code-bg container)
+      primaryColor: '#F2F0E5',     // flexoki-50 (node fill)
+      primaryBorderColor: '#205EA6', // blue-600 (accent)
+      primaryTextColor: '#100F0F', // black
+      secondaryColor: '#E6E4D9',   // flexoki-100
+      tertiaryColor: '#F2F0E5',
+      lineColor: '#6F6E69',        // flexoki-600
+      textColor: '#100F0F',
+    },
+    dark: {
+      darkMode: true,
+      background: '#1C1B1A',       // flexoki-950 (matches code-bg container)
+      primaryColor: '#1C1B1A',     // flexoki-950 (node fill)
+      primaryBorderColor: '#4385BE', // blue-400 (accent)
+      primaryTextColor: '#CECDC3', // flexoki-200
+      secondaryColor: '#282726',   // flexoki-900
+      tertiaryColor: '#1C1B1A',
+      lineColor: '#878580',        // flexoki-500
+      textColor: '#CECDC3',
+    },
+  };
+
+  const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+  async function render() {
+    const variables = darkQuery.matches ? themes.dark : themes.light;
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: 'strict',
+      theme: 'base',
+      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+      themeVariables: variables,
+    });
+
+    // Reset so mermaid will process the nodes again on re-render.
+    diagrams.forEach((pre) => {
+      pre.removeAttribute('data-processed');
+      pre.innerHTML = pre.dataset.source;
+    });
+
+    await mermaid.run({ nodes: diagrams });
+  }
+
+  await render();
+  darkQuery.addEventListener('change', render);
+})();
+</script>

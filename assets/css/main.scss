@@ -367,6 +367,21 @@ details[open] > summary.callout-title::after { transform: rotate(225deg); }
 .callout-example .callout-icon::before { content: "E"; }
 .callout-quote .callout-icon::before { content: "\""; }
 
+/* Mermaid diagrams */
+pre.mermaid {
+  background: var(--color-code-bg);
+  border: 1px solid var(--color-code-border);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+  text-align: center;
+  line-height: normal;
+}
+/* Hide the raw source until mermaid has rendered the SVG */
+pre.mermaid:not([data-processed="true"]) { color: transparent; }
+pre.mermaid svg { max-width: 100%; height: auto; }
+
 /* Experience */
 .experiences { display: flex; flex-direction: column; gap: 1.5rem; }
 .experience { padding-bottom: 1rem; border-bottom: 1px solid var(--color-border); }
