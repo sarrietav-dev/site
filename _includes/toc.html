@@ -1,0 +1,71 @@
+<nav class="toc" aria-label="Table of contents" hidden></nav>
+<script>
+(() => {
+  // Build a tick-mark rail from the article headings. Kramdown already
+  // assigns ids to headings, so we reuse them as scroll targets (same source
+  // heading_anchors.html links to).
+  const nav = document.querySelector('nav.toc');
+  if (!nav) return;
+
+  const headings = [...document.querySelectorAll('main article :is(h2, h3)[id]')];
+  if (headings.length < 2) return; // not worth a ToC for a single section
+
+  const links = headings.map((heading) => {
+    const link = document.createElement('a');
+    link.href = '#' + heading.id;
+    link.className = 'toc-tick toc-' + heading.tagName.toLowerCase();
+
+    const label = document.createElement('span');
+    label.className = 'toc-label';
+    // Strip the injected anchor-link text, keep only the heading title.
+    label.textContent = heading.firstChild && heading.firstChild.textContent
+      ? heading.firstChild.textContent.trim()
+      : heading.textContent.trim();
+
+    link.appendChild(label);
+    nav.appendChild(link);
+    return { heading, link };
+  });
+
+  nav.hidden = false;
+
+  // Highlight the section currently nearest the top of the viewport.
+  const byId = new Map(links.map(({ heading, link }) => [heading.id, link]));
+  let activeId = null;
+
+  const setActive = (id) => {
+    if (id === activeId) return;
+    if (activeId) byId.get(activeId)?.classList.remove('is-active');
+    activeId = id;
+    if (activeId) byId.get(activeId)?.classList.add('is-active');
+  };
+
+  const visible = new Set();
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) visible.add(entry.target);
+        else visible.delete(entry.target);
+      }
+      // Of the headings currently on screen, pick the topmost.
+      if (visible.size > 0) {
+        const top = [...visible].sort(
+          (a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top
+        )[0];
+        setActive(top.id);
+      } else {
+        // Between sections: fall back to the last heading scrolled past.
+        let current = headings[0];
+        for (const h of headings) {
+          if (h.getBoundingClientRect().top < 100) current = h;
+          else break;
+        }
+        setActive(current.id);
+      }
+    },
+    { rootMargin: '0px 0px -70% 0px', threshold: 0 }
+  );
+
+  headings.forEach((h) => observer.observe(h));
+})();
+</script>
