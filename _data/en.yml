@@ -13,13 +13,13 @@ language:
   spanish: Spanish
 
 hero:
-  tagline: Software Engineer @
+  tagline: Systems Engineer @
 
 about:
   label: /about
   paragraphs:
     - >-
-      I'm a software engineer passionate about building elegant solutions to complex problems.
+      I'm a Systems engineer passionate about building elegant solutions to complex problems.
       With expertise in modern web technologies and a focus on clean, maintainable code,
       I help bring ideas to life through software.
     - >-

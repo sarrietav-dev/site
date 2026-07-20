@@ -13,13 +13,13 @@ language:
   spanish: Español
 
 hero:
-  tagline: Ingeniero de Software @
+  tagline: Ingeniero de Sistemas @
 
 about:
   label: /sobre-mi
   paragraphs:
     - >-
-      Soy un ingeniero de software apasionado por construir soluciones elegantes para problemas complejos.
+      Soy un ingeniero de sistemas apasionado por construir soluciones elegantes para problemas complejos.
       Con experiencia en tecnologías web modernas y un enfoque en código limpio y mantenible,
       ayudo a convertir ideas en software.
     - >-
