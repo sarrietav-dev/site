@@ -18,25 +18,25 @@ This article explains the architecture behind that system and the decisions invo
 
 ## What is a cloud agent?
 
-A cloud agent is a program that runs remotely, uses an LLM and a set of tools to perform a task, and produces an artifact or side effect.
+An agent is a system in which an LLM decides what action to take next, observes the result, and continues until the task is complete or the run reaches a limit.
 
-It usually needs five things:
+That usually requires three things:
 
 * An LLM
-* Tools
+* Tools the model can use
 * An execution loop
-* Remote execution
-* A definition of completion
 
-The remote part matters. The agent might run on your own server, Kubernetes, Railway, Fly.io, AWS, or another compute platform. What makes it a cloud agent is that the work happens in a managed environment rather than on the user’s machine.
+The loop is what separates an agent from a normal assistant interaction. A chatbot produces a response. An agent can inspect the result of an action, adjust its approach, and continue working.
 
-The distinction is not simply “ChatGPT versus an agent.” Interactive assistants respond to individual messages. A cloud agent receives an objective and continues working until it completes the task, reaches a limit, or fails.
+A cloud agent runs that process in a remote environment rather than on the user’s machine. It might run on your own server, Kubernetes, Railway, Fly.io, AWS, or another compute platform.
+
+Moving the agent to the cloud introduces additional concerns such as isolated execution, job scheduling, credentials, observability, limits, and failure recovery.
 
 For BugLady, the objective might be:
 
 > Add pagination to the users endpoint and include tests.
 
-The result is not an explanation of how to add pagination. The result is a branch containing the implementation, passing tests, and a pull request ready for review.
+The result is not an explanation of how to add pagination. The agent inspects the repository, edits the code, runs the tests, responds to failures, and continues until it produces a pull request or reaches one of its limits.
 
 ## Why build one?
 
