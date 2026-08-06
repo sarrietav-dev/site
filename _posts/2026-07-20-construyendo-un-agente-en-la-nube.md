@@ -19,25 +19,25 @@ Este artículo explica la arquitectura detrás de ese sistema y las decisiones i
 
 ## ¿Qué es un agente en la nube?
 
-Un agente en la nube es un programa que se ejecuta de forma remota, utiliza un LLM y un conjunto de herramientas para realizar una tarea, y produce un artefacto o un efecto secundario.
+Un agente es un sistema en el que un LLM decide qué acción ejecutar, observa el resultado y continúa hasta completar la tarea o alcanzar uno de sus límites.
 
-Normalmente necesita cinco cosas:
+Normalmente requiere tres cosas:
 
 * Un LLM
-* Herramientas
+* Herramientas que el modelo pueda utilizar
 * Un bucle de ejecución
-* Ejecución remota
-* Una definición de finalización
 
-La parte remota importa. El agente podría ejecutarse en tu propio servidor, en Kubernetes, Railway, Fly.io, AWS u otra plataforma de cómputo. Lo que lo convierte en un agente en la nube es que el trabajo ocurre en un entorno gestionado en lugar de en la máquina del usuario.
+El bucle es lo que diferencia a un agente de una interacción normal con un asistente. Un chatbot produce una respuesta. Un agente puede observar el resultado de una acción, ajustar su enfoque y continuar trabajando.
 
-La distinción no es simplemente "ChatGPT frente a un agente". Los asistentes interactivos responden a mensajes individuales. Un agente en la nube recibe un objetivo y sigue trabajando hasta que completa la tarea, alcanza un límite o falla.
+Un agente en la nube ejecuta ese proceso en un entorno remoto, en lugar de hacerlo en la máquina del usuario. Puede ejecutarse en tu propio servidor, Kubernetes, Railway, Fly.io, AWS u otra plataforma de cómputo.
+
+Mover el agente a la nube introduce preocupaciones adicionales como aislamiento, planificación de trabajos, credenciales, observabilidad, límites y recuperación ante fallos.
 
 Para BugLady, el objetivo podría ser:
 
 > Agrega paginación al endpoint de usuarios e incluye pruebas.
 
-El resultado no es una explicación de cómo agregar paginación. El resultado es una rama que contiene la implementación, pruebas que pasan y un pull request listo para revisión.
+El resultado no es una explicación de cómo agregar paginación. El agente inspecciona el repositorio, modifica el código, ejecuta las pruebas, reacciona ante los errores y continúa hasta producir un pull request o alcanzar uno de sus límites.
 
 ## ¿Por qué construir uno?
 
