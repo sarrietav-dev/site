@@ -1,43 +1,57 @@
-<nav class="toc" aria-label="Table of contents" hidden></nav>
+<nav class="obsidian-reader-outline" aria-label="Table of contents" hidden></nav>
 <script>
 (() => {
-  // Build a tick-mark rail from the article headings. Kramdown already
-  // assigns ids to headings, so we reuse them as scroll targets (same source
-  // heading_anchors.html links to).
-  const nav = document.querySelector('nav.toc');
+  // Build an Obsidian Reader-style outline from the article headings.
+  // Kramdown already assigns ids to headings, so we reuse them as scroll
+  // targets (same source heading_anchors.html links to).
+  const nav = document.querySelector('nav.obsidian-reader-outline');
   if (!nav) return;
 
-  const headings = [...document.querySelectorAll('main article :is(h2, h3)[id]')];
-  if (headings.length < 2) return; // not worth a ToC for a single section
+  const headings = [...document.querySelectorAll('main article :is(h2, h3, h4)[id]')];
+  if (headings.length < 2) return; // not worth an outline for a single section
 
-  const links = headings.map((heading) => {
-    const link = document.createElement('a');
-    link.href = '#' + heading.id;
-    link.className = 'toc-tick toc-' + heading.tagName.toLowerCase();
+  const items = headings.map((heading) => {
+    const level = parseInt(heading.tagName[1], 10);
+    const item = document.createElement('a');
+    item.href = '#' + heading.id;
+    item.className = 'obsidian-reader-outline-item obsidian-reader-outline-h' + level;
+    item.dataset.depth = String(level - 2);
+    item.dataset.headingId = heading.id;
 
-    const label = document.createElement('span');
-    label.className = 'toc-label';
     // Strip the injected anchor-link text, keep only the heading title.
-    label.textContent = heading.firstChild && heading.firstChild.textContent
+    item.textContent = heading.firstChild && heading.firstChild.textContent
       ? heading.firstChild.textContent.trim()
       : heading.textContent.trim();
 
-    link.appendChild(label);
-    nav.appendChild(link);
-    return { heading, link };
+    nav.appendChild(item);
+    return { heading, item };
   });
 
   nav.hidden = false;
 
-  // Highlight the section currently nearest the top of the viewport.
-  const byId = new Map(links.map(({ heading, link }) => [heading.id, link]));
+  // Highlight the section currently nearest the top of the viewport,
+  // mirroring Obsidian Reader: headings above it fade out, the active
+  // one stays highlighted, and the outline auto-scrolls to keep it visible.
+  const byId = new Map(items.map(({ heading, item }) => [heading.id, item]));
   let activeId = null;
 
   const setActive = (id) => {
     if (id === activeId) return;
-    if (activeId) byId.get(activeId)?.classList.remove('is-active');
+    if (activeId) byId.get(activeId)?.classList.remove('active');
     activeId = id;
-    if (activeId) byId.get(activeId)?.classList.add('is-active');
+
+    let reachedActive = false;
+    for (const { heading, item } of items) {
+      item.classList.remove('active');
+      if (heading.id === activeId) {
+        item.classList.remove('faint');
+        item.classList.add('active');
+        reachedActive = true;
+      } else {
+        item.classList.toggle('faint', !reachedActive);
+      }
+    }
+    byId.get(activeId)?.scrollIntoView({ block: 'nearest' });
   };
 
   const visible = new Set();
