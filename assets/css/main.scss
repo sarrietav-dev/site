@@ -123,11 +123,13 @@ a:focus-visible { outline: 2px solid var(--color-text); outline-offset: 3px; }
 pre {
   background-color: var(--color-code-bg);
   border: 1px solid var(--color-code-border);
-  border-radius: 6px;
-  padding: 1rem;
+  border-radius: 0.6rem;
+  padding: 12px 16px;
   overflow-x: auto;
   margin-bottom: 1rem;
   color: var(--color-text);
+  white-space: pre;
+  max-width: 100%;
 }
 
 code {
@@ -138,25 +140,39 @@ code {
 
 :not(pre) > code {
   background-color: var(--color-code-bg);
-  padding: 0.15em 0.4em;
-  border-radius: 3px;
+  border: 1px solid var(--color-code-border);
+  padding: 0.1em 0.25em;
+  border-radius: 4px;
 }
 
-/* Rouge syntax highlighting — Flexoki theme */
-/* Light mode (default) */
+/* Rouge syntax highlighting — Highlight.js-style Flexoki palette.
+   Light mode (default); colors mirror the Obsidian Reader theme, mapped
+   onto Rouge token classes. */
 .highlight { background-color: var(--color-code-bg); color: var(--color-text); }
 .highlight pre { background-color: transparent; border: none; margin: 0; padding: 0; }
-.highlight .c, .highlight .c1, .highlight .cm, .highlight .cp, .highlight .cs { color: var(--flexoki-300); font-style: italic; }
-.highlight .s, .highlight .s1, .highlight .s2, .highlight .sh, .highlight .si, .highlight .ss, .highlight .dl { color: var(--flexoki-cyan-600); }
+.highlight code {
+  color: var(--color-text);
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: normal;
+  word-spacing: normal;
+  -webkit-hyphens: none;
+  hyphens: none;
+}
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cp, .highlight .cs { color: var(--color-text-muted); font-style: italic; }
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sh, .highlight .si, .highlight .ss, .highlight .dl { color: var(--flexoki-green-600); }
 .highlight .mi, .highlight .mf, .highlight .mh, .highlight .mo, .highlight .il, .highlight .m, .highlight .mb, .highlight .mx { color: var(--flexoki-purple-600); }
-.highlight .k, .highlight .kd, .highlight .kp, .highlight .kr, .highlight .kn, .highlight .kt, .highlight .kc { color: var(--flexoki-green-600); }
-.highlight .nf, .highlight .fm { color: var(--flexoki-orange-600); }
-.highlight .nc, .highlight .no { color: var(--flexoki-yellow-600); }
-.highlight .na, .highlight .nt { color: var(--flexoki-orange-600); }
-.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm { color: var(--flexoki-black); }
-.highlight .nb { color: var(--flexoki-blue-600); }
-.highlight .o, .highlight .ow { color: var(--flexoki-600); }
-.highlight .p { color: var(--flexoki-600); }
+.highlight .k, .highlight .kd, .highlight .kp, .highlight .kr, .highlight .kn, .highlight .kc { color: var(--flexoki-cyan-600); }
+.highlight .kt { color: var(--flexoki-yellow-600); }
+.highlight .nf, .highlight .fm { color: var(--flexoki-blue-600); }
+.highlight .nc { color: var(--flexoki-yellow-600); }
+.highlight .no { color: var(--flexoki-orange-600); }
+.highlight .na { color: var(--flexoki-blue-600); }
+.highlight .nt { color: var(--flexoki-magenta-600); }
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm { color: var(--flexoki-orange-600); }
+.highlight .nb { color: var(--flexoki-red-600); }
+.highlight .o, .highlight .ow { color: var(--color-text-muted); }
+.highlight .p { color: var(--color-text-muted); }
 .highlight .ge { font-style: italic; }
 .highlight .gs { font-weight: bold; }
 .highlight .err { color: var(--flexoki-red-600); }
@@ -164,17 +180,20 @@ code {
 .highlight .gi { color: var(--flexoki-green-600); }
 
 @media (prefers-color-scheme: dark) {
-  .highlight .c, .highlight .c1, .highlight .cm, .highlight .cp, .highlight .cs { color: var(--flexoki-500); }
-  .highlight .s, .highlight .s1, .highlight .s2, .highlight .sh, .highlight .si, .highlight .ss, .highlight .dl { color: var(--flexoki-cyan-400); }
+  .highlight .c, .highlight .c1, .highlight .cm, .highlight .cp, .highlight .cs { color: var(--color-text-muted); }
+  .highlight .s, .highlight .s1, .highlight .s2, .highlight .sh, .highlight .si, .highlight .ss, .highlight .dl { color: var(--flexoki-green-400); }
   .highlight .mi, .highlight .mf, .highlight .mh, .highlight .mo, .highlight .il, .highlight .m, .highlight .mb, .highlight .mx { color: var(--flexoki-purple-400); }
-  .highlight .k, .highlight .kd, .highlight .kp, .highlight .kr, .highlight .kn, .highlight .kt, .highlight .kc { color: var(--flexoki-green-400); }
-  .highlight .nf, .highlight .fm { color: var(--flexoki-orange-400); }
-  .highlight .nc, .highlight .no { color: var(--flexoki-yellow-400); }
-  .highlight .na, .highlight .nt { color: var(--flexoki-orange-400); }
-  .highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm { color: var(--flexoki-200); }
-  .highlight .nb { color: var(--flexoki-blue-400); }
-  .highlight .o, .highlight .ow { color: var(--flexoki-500); }
-  .highlight .p { color: var(--flexoki-500); }
+  .highlight .k, .highlight .kd, .highlight .kp, .highlight .kr, .highlight .kn, .highlight .kc { color: var(--flexoki-cyan-400); }
+  .highlight .kt { color: var(--flexoki-yellow-400); }
+  .highlight .nf, .highlight .fm { color: var(--flexoki-blue-400); }
+  .highlight .nc { color: var(--flexoki-yellow-400); }
+  .highlight .no { color: var(--flexoki-orange-400); }
+  .highlight .na { color: var(--flexoki-blue-400); }
+  .highlight .nt { color: var(--flexoki-magenta-400); }
+  .highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm { color: var(--flexoki-orange-400); }
+  .highlight .nb { color: var(--flexoki-red-400); }
+  .highlight .o, .highlight .ow { color: var(--color-text-muted); }
+  .highlight .p { color: var(--color-text-muted); }
   .highlight .err { color: var(--flexoki-red-400); }
   .highlight .gd { color: var(--flexoki-red-400); }
   .highlight .gi { color: var(--flexoki-green-400); }
@@ -392,8 +411,9 @@ article pre { margin-bottom: 1rem; }
 article code { font-family: var(--font-mono); font-size: 0.875em; }
 article :not(pre) > code {
   background-color: var(--color-code-bg);
-  padding: 0.15em 0.4em;
-  border-radius: 3px;
+  border: 1px solid var(--color-code-border);
+  padding: 0.1em 0.25em;
+  border-radius: 4px;
 }
 article blockquote {
   margin: 1.5rem 0;
