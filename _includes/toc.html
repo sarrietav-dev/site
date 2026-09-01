@@ -1,10 +1,10 @@
-<nav class="obsidian-reader-outline" aria-label="Table of contents" hidden></nav>
+<nav class="outline" aria-label="Table of contents" hidden></nav>
 <script>
 (() => {
   // Build an Obsidian Reader-style outline from the article headings.
   // Kramdown already assigns ids to headings, so we reuse them as scroll
   // targets (same source heading_anchors.html links to).
-  const nav = document.querySelector('nav.obsidian-reader-outline');
+  const nav = document.querySelector('nav.outline');
   if (!nav) return;
 
   const headings = [...document.querySelectorAll('main article :is(h2, h3, h4)[id]')];
@@ -14,7 +14,7 @@
     const level = parseInt(heading.tagName[1], 10);
     const item = document.createElement('a');
     item.href = '#' + heading.id;
-    item.className = 'obsidian-reader-outline-item obsidian-reader-outline-h' + level;
+    item.className = 'outline-item outline-h' + level;
     item.dataset.depth = String(level - 2);
     item.dataset.headingId = heading.id;
 

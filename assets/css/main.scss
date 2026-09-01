@@ -319,7 +319,7 @@ article .heading-anchor:hover { color: var(--color-text); }
 /* Side outline — Obsidian Reader style (built by toc.html). A fixed,
    full-height rail on the left listing every article heading; headings
    above the active one fade out (`.faint`), the current one is `.active`. */
-.obsidian-reader-outline {
+.outline {
   /* Override the global `nav { ... }` rules: this rail stacks vertically. */
   display: flex;
   flex-direction: column;
@@ -342,9 +342,9 @@ article .heading-anchor:hover { color: var(--color-text); }
   -webkit-user-select: none;
   z-index: 5;
 }
-.obsidian-reader-outline[hidden] { display: none; }
+.outline[hidden] { display: none; }
 
-.obsidian-reader-outline .obsidian-reader-outline-item {
+.outline .outline-item {
   display: block;
   cursor: pointer;
   padding: 5px 8px;
@@ -358,21 +358,21 @@ article .heading-anchor:hover { color: var(--color-text); }
   transition: color 0.1s ease, background-color 0.1s ease;
 }
 /* Headings above the active one fade out; hovering revives the color. */
-.obsidian-reader-outline .obsidian-reader-outline-item.faint {
+.outline .outline-item.faint {
   color: var(--color-text-faint);
 }
 /* Nesting: h3 sits under h2, h4 under h3. */
-.obsidian-reader-outline .obsidian-reader-outline-item[data-depth="1"] {
+.outline .outline-item[data-depth="1"] {
   padding-left: 20px;
 }
-.obsidian-reader-outline .obsidian-reader-outline-item[data-depth="2"] {
+.outline .outline-item[data-depth="2"] {
   padding-left: 32px;
 }
-.obsidian-reader-outline .obsidian-reader-outline-item:hover {
+.outline .outline-item:hover {
   background-color: color-mix(in srgb, var(--color-text) 8%, transparent);
   color: var(--color-text);
 }
-.obsidian-reader-outline .obsidian-reader-outline-item:focus-visible {
+.outline .outline-item:focus-visible {
   outline: 2px solid var(--color-text);
   outline-offset: -2px;
 }
@@ -380,7 +380,7 @@ article .heading-anchor:hover { color: var(--color-text); }
 /* Only room for the 240px rail once the viewport is wider than the content
    column plus the sidebar. */
 @media (max-width: 1280px) {
-  .obsidian-reader-outline { display: none; }
+  .outline { display: none; }
 }
 
 article ul, article ol { margin-bottom: 1rem; padding-left: 1.5rem; }
